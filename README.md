@@ -91,3 +91,4 @@ console.log(b); // ReferenceError: b is not defined
 - 기본적으로 **내부에서는 외부를 볼 수 있지만, 외부에서는 내부를 볼 수 없다** 는 개념으로 이해할 수 있다.
 - 코드가 작성되는 시점에 구문만으로 정해지는 스코프를 어휘적 스코프(lexical scope)라고 하며, 코드가 실행되는 와중에 정해지는 스코프를 동적 스코프(dynamic scope)라고 한다. **자바스크립트는 lexical scope를 따른다**
 - 스코프가 존재하는 가장 큰 이유는 식별자(identifier)의 충돌을 막기 위함이다.
+

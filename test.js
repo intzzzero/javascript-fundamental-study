@@ -1,3 +1,4 @@
+// test 1
 function dist(p, q) {
   const dx = q.x - p.x;
   const dy = q.y - p.y;
@@ -10,13 +11,14 @@ const d = dist(p1, p2);
 
 console.log(d)
 
-
+// test 2
 console.log(square(5));
 
 function square(x) {
   return x * x;
 }
 
+// test 3
 function add1(x) {
   return x = x + 1;
 }
@@ -26,7 +28,7 @@ var b = add1(a);
 
 console.log(`a = ${a}, b = ${b}`);
 
-
+// test 4
 function add1(p) {
   p.x = p.x + 1;
   p.y = p.y + 1;
@@ -38,5 +40,41 @@ var b = add1(a);
 
 console.log(a, b);
 
+// test 5
+var a = 'global';
 
+function f() {
+  var b = 'local';
+  console.log(a); // global
+  return b;
+}
 
+f();
+console.log(b); // ReferenceError: b is not defined
+
+// test 6
+function f() {
+  console.log(a); // undefined
+  var a = 'local';
+  console.log(a); // local
+  return a;
+}
+
+f();
+
+// test 7
+let a = 1;
+a = 2;
+
+console.log(a); // 2
+
+let a = 3; // SyntaxError: Identifier 'a' has already been declared
+
+var a = 'global';
+function d() {
+  var a = 'local';
+  console.log(a);
+  return a;
+}
+d();
+console.log(a);
