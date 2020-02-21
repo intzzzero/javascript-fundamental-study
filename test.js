@@ -70,6 +70,7 @@ console.log(a); // 2
 
 let a = 3; // SyntaxError: Identifier 'a' has already been declared
 
+// test 8
 var a = 'global';
 function d() {
   var a = 'local';
@@ -78,3 +79,20 @@ function d() {
 }
 d();
 console.log(a);
+
+// test 9
+var circle = {
+  center: { x:1.0, y:2.0 }, // 원의 중심
+  radius: 2.5, // 원의 반지름
+  area: function () { // 원의 넓이를 구하는 메서드
+    return Math.PI * this.radius * this.radius;
+  }
+};
+
+circle.translate = function(a, b) { // 새로운 메서드를 추가하여 원을 이동
+  this.center.x = this.center.x + a;
+  this.center.y = this.center.y + b;
+};
+
+circle.translate(1, 2);
+circle.center; // {x: 2, y: 4}

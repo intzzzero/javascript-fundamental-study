@@ -92,3 +92,23 @@ console.log(b); // ReferenceError: b is not defined
 - 코드가 작성되는 시점에 구문만으로 정해지는 스코프를 어휘적 스코프(lexical scope)라고 하며, 코드가 실행되는 와중에 정해지는 스코프를 동적 스코프(dynamic scope)라고 한다. **자바스크립트는 lexical scope를 따른다**
 - 스코프가 존재하는 가장 큰 이유는 식별자(identifier)의 충돌을 막기 위함이다.
 
+## 메서드(method)
+```javascript
+var circle = {
+  center: { x:1.0, y:2.0 }, // 원의 중심
+  radius: 2.5, // 원의 반지름
+  area: function () { // 원의 넓이를 구하는 메서드
+    return Math.PI * this.radius * this.radius;
+  }
+};
+
+circle.translate = function(a, b) { // 새로운 메서드를 추가하여 원을 이동
+  this.center.x = this.center.x + a;
+  this.center.y = this.center.y + b;
+};
+
+circle.translate(1, 2);
+circle.center; // {x: 2, y: 4}
+```
+- 자바스크립트에서는 객체 내부의 데이터는 모두 프로퍼티(property)이며, 프로퍼티가 함수를 값으로 가질 때, 일반 프로퍼티와 구분하기 위해 **메서드(method)** 라고 칭한다.
+- 일반적으로 메서드는, 메서드가 속한 객체의 내부 데이터(프로퍼티 값) 상태를 바꾸는 용도로 사용한다.
