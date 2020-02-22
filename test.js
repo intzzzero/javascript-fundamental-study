@@ -96,3 +96,12 @@ circle.translate = function(a, b) { // 새로운 메서드를 추가하여 원�
 
 circle.translate(1, 2);
 circle.center; // {x: 2, y: 4}
+
+// test 10
+function Card(suit, rank) {
+  this.suit = suit;
+  this.rank = rank;
+}
+
+const card = new Card('Heart', 'A');
+console.log(card); // Card { suit: 'Heart', rank: 'A' }
