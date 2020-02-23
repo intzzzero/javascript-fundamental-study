@@ -141,3 +141,7 @@ console.log(card); // Card { suit: 'Heart', rank: 'A' }
 - 이때, 통상적으로 생성자 함수라는 것을 알리기 위해 **파스칼 케이스**를 쓴다.
 - 이와 같이 생성된 객체를 **인스턴스** 라고 부르는데, 본래 객체지향 언어에서의 인스턴스와는 차이가 있지만, 일반 객체와 구분하기 위해 편의상 인스턴스라고 부른다.
 - `this` 는 생성자가 생성하는 객체를 가리킨다. 즉, 생성자 함수 내부의 `this` 는 인스턴스를 가리킨다고 볼 수 있다.
+- 참고: 
+  - https://ko.javascript.info/constructor-new
+  - https://ko.javascript.info/class
+  - https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes
