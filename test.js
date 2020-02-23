@@ -105,3 +105,34 @@ function Card(suit, rank) {
 
 const card = new Card('Heart', 'A');
 console.log(card); // Card { suit: 'Heart', rank: 'A' }
+
+// test 11
+class Card {
+  constructor(suit, rank) {
+    this.suit = suit;
+    this.rank = rank;
+  }
+}
+
+const card = new Card('King', 'K');
+console.log(card);
+
+// test 12
+function Animal (name) {
+  this.name = name;
+}
+Animal.prototype.speak = function () {
+  console.log(this.name + ' make a noise.');
+}
+
+class Dog extends Animal {
+  speak() {
+    super.speak();
+    console.log(this.name + ' bark.');
+  }
+}
+
+const d = new Dog('Charls');
+d.speak();
+const s = new Animal('King');
+s.speak();
