@@ -136,3 +136,24 @@ const d = new Dog('Charls');
 d.speak();
 const s = new Animal('King');
 s.speak();
+
+// test 13
+function Circle(center, radius) {
+  this.center = center;
+  this.radius = radius;
+  this.area = function() {
+    return Math.PI * this.radius * this.radius;
+  };
+}
+
+const p = {x:0, y:0};
+const c = new Circle(p, 2.0);
+console.log("넓이 = " + c.area()); // 넓이 = 12.566370614359172
+
+// test 14
+const now = new Date();
+const then = new Date(1988, 4, 7);
+const elapsed = now - then;
+const hours = Math.round(((elapsed / 1000) / 60) / 60, 0);
+const days = Math.round(hours / 24, 0);
+console.log(days + '일 살았습니다.');
