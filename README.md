@@ -145,3 +145,17 @@ console.log(card); // Card { suit: 'Heart', rank: 'A' }
   - https://ko.javascript.info/constructor-new
   - https://ko.javascript.info/class
   - https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes
+
+## 자바스크립트의 객체
+- 자바스크립트의 객체는 크게 **세 종류** 로 구분할 수 있다.
+
+1. **네이티브 객체**
+  - ECMAScript 스펙에 따라 정의된 객체를 네이티브 객체(native object)다. 
+  - Array, Function, Number 등의 내장 생성자로 생성된 객체와 JSON, Math, Reflect 등이 네이티브 객체에 포함된다.
+
+2. **호스트 객체**
+  - 자바스크립트 실행 환경에 정의된 객체를 호스트 객체(host object)라고 한다.
+  - Window, Navigator, History, Screen 등 브라우저 객체와 DOM 객체, Ajax를 위한 XMLHttpRequest 객체, HTML5의 여러 API에 이르기까지 클라이언트 측 자바스크립트에 정의된 객체들이 포함된다.
+
+3. **사용자 정의 객체**
+  - 사용자가 직접 정의한 코드의 실행 결과로 생성된 객체를 말한다.
