@@ -157,3 +157,9 @@ const elapsed = now - then;
 const hours = Math.round(((elapsed / 1000) / 60) / 60, 0);
 const days = Math.round(hours / 24, 0);
 console.log(days + '일 살았습니다.');
+
+// test 15
+const beer = ['cass', 'hite', 'terra'];
+
+const iLike = beer.map(item => 'I like ' + item);
+console.log(iLike);
