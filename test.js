@@ -173,3 +173,9 @@ console.log(a); // 3
 const a = ['A', 'B', 'C'];
 a[4] = 'E';
 console.log(a);
+
+// test 18
+const a = 1;
+const b = 2;
+const c = a !== b ? 'hello' : 'world';
+console.log(c); // hello

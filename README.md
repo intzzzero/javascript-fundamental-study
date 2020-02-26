@@ -197,3 +197,28 @@ const a = {
   '4':'E'
 };
 ```
+## 표현식(expression)
+- 표현식이란 결과적으로 어떤 값으로 평가(evaluation)되는 것
+- number, string, boolean 등의 원시 값(primitive value)은 그 자체로 가장 간단한 표현식이라고 할 수 있다.
+```javascript
+3.14
+"hello"
+true
+null
+```
+- 변수, 프로퍼티, 배열 요소, 함수 호출, 메서드 호출 등 또한 표현식이라고 할 수 있다.
+```javascript
+sum
+circle.radius
+a[3]
+square(5)
+card.getSum()
+```
+- 연산자가 더해지더라도 결과적으로 값으로 평가된다면 역시 표현식이다.
+  - 단항 연산자, 이항 연산자, 삼항 연산자 모두 그렇다.
+```javascript
+const a = 1;
+const b = 2;
+const c = a !== b ? 'hello' : 'world';
+console.log(c); // hello
+```
