@@ -163,3 +163,8 @@ const beer = ['cass', 'hite', 'terra'];
 
 const iLike = beer.map(item => 'I like ' + item);
 console.log(iLike);
+
+// test 16
+console.log(a); // undefined
+var a = 3;
+console.log(a); // 3
