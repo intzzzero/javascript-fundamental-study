@@ -178,3 +178,22 @@ console.log(card); // Card { suit: 'Heart', rank: 'A' }
 3. **사용자 정의 객체**
   - 사용자가 직접 정의한 코드의 실행 결과로 생성된 객체를 말한다.
 
+## 희소 배열(array)
+```javascript
+const a = ['A', 'B', 'C'];
+a[4] = 'E';
+console.log(a); // ["A", "B", "C", empty, "E"]
+console.log(a[3]); // undefined
+console.log(a.length); // 5
+a.hasOwnProperty("3"); // false
+```
+- 위와 같이 `length`가 요소의 개수보다 클 때 **희소 배열** 이라고 부른다.
+- 이때 배열은 내부적으로 **객체** 의 형태로 저장되어 있으며, 리터럴로 표현하자면 아래와 같다.
+```javascript
+const a = {
+  '0':'A',
+  '1':'B',
+  '2':'C',
+  '4':'E'
+};
+```

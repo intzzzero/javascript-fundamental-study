@@ -168,3 +168,8 @@ console.log(iLike);
 console.log(a); // undefined
 var a = 3;
 console.log(a); // 3
+
+// test 17
+const a = ['A', 'B', 'C'];
+a[4] = 'E';
+console.log(a);
