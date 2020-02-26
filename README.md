@@ -178,7 +178,7 @@ console.log(card); // Card { suit: 'Heart', rank: 'A' }
 3. **사용자 정의 객체**
   - 사용자가 직접 정의한 코드의 실행 결과로 생성된 객체를 말한다.
 
-## 희소 배열(array)
+## 희소 배열(sparse array)
 ```javascript
 const a = ['A', 'B', 'C'];
 a[4] = 'E';
