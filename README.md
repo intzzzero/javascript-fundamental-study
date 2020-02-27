@@ -160,9 +160,9 @@ console.log(card); // Card { suit: 'Heart', rank: 'A' }
 - 이와 같이 생성된 객체를 **인스턴스** 라고 부르는데, 본래 객체지향 언어에서의 인스턴스와는 차이가 있지만, 일반 객체와 구분하기 위해 편의상 인스턴스라고 부른다.
 - `this` 는 생성자가 생성하는 객체를 가리킨다. 즉, 생성자 함수 내부의 `this` 는 인스턴스를 가리킨다고 볼 수 있다.
 - **참고:** 
-  - https://ko.javascript.info/constructor-new
-  - https://ko.javascript.info/class
-  - https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes
+  - [‘new’ 연산자와 생성자 함수](https://ko.javascript.info/constructor-new)
+  - [클래스와 기본 문법](https://ko.javascript.info/class)
+  - [Classes - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes)
 
 ## 자바스크립트의 객체
 - 자바스크립트의 객체는 크게 **세 종류** 로 구분할 수 있다.
@@ -236,3 +236,5 @@ const newString = randomString.replace('soft', 'hard');
 console.log(randomString); // microsoft
 console.log(newString); // microhard
 ```
+- **참고**
+  - [문자열](https://ko.javascript.info/string)
