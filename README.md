@@ -238,3 +238,11 @@ console.log(newString); // microhard
 ```
 - **참고**
   - [문자열](https://ko.javascript.info/string)
+
+## truthy와 falsy
+- true나 false로 명시되어 있지 않더라도 논리값으로 평가되는 피연산자들이 있다.
+- **true로 평가되는 피연산자**
+  - 0을 제외한 숫자, 빈 문자열을 제외한 문자열, 모든 객체, 심벌
+- **false로 평가되는 피연산자**
+  - 0, -0, 빈 문자열(""), NaN, null, undefined
+- truthy와 falsy에 각각 속한 피연산자들을 보면 나름대로의 일관성이 보이는 것을 알 수 있다. 대체적으로 **없음** 의 뉘앙스가 강한 쪽이 false로 평가된다.
