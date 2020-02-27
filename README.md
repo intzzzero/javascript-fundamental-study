@@ -222,3 +222,17 @@ const b = 2;
 const c = a !== b ? 'hello' : 'world';
 console.log(c); // hello
 ```
+
+## 자바스크립트의 문자열은 불변(immutable)
+- 자바스크립트는 원시 값을 처리할 때 원시 값을 래퍼(wrapper) 객체로 자동 변환한다.
+  - 문자열은 String 객체, 숫자는 Number 객체, 논리값은 Boolean 객체
+  - null과 undefined는 래퍼 객체가 없음.
+- 래핑은 일시적으로 진행되며 처리가 끝나면 곧바로 메모리에서 삭제된다.
+- **따라서 문자열을 직접 객체화 하지 않더라도 String 객체의 메서드를 사용할 수 있다.**
+- 또한, **자바스크립트의 문자열은 불변** 이므로 메서드를 통해 반환되는 새로운 문자열은 원본 문자열과 별개의 값이다.
+```javascript
+const randomString = 'microsoft';
+const newString = randomString.replace('soft', 'hard');
+console.log(randomString); // microsoft
+console.log(newString); // microhard
+```

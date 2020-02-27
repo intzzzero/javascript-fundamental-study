@@ -179,3 +179,9 @@ const a = 1;
 const b = 2;
 const c = a !== b ? 'hello' : 'world';
 console.log(c); // hello
+
+// test 19
+const randomString = 'microsoft';
+const newString = randomString.replace('soft', 'hard');
+console.log(randomString);
+console.log(newString);
