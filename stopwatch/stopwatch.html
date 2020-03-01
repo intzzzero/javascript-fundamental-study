@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch</title>
+  <script>
+    window.onload = function() {
+      var startBtn = document.getElementById('start');
+      var stopBtn = document.getElementById('stop');
+      var display = document.getElementById('display');
+      var startTime, timer;
+      startBtn.onclick = start;
+      function start() {
+        startBtn.onclick = null;
+        stopBtn.onclick = stop;
+        startTime = new Date();
+        timer = setInterval(function() {
+          var now = new Date();
+          display.innerHTML = ((now - startTime) / 1000).toFixed(2);
+        }, 10);
+      }
+      function stop() {
+        clearInterval(timer);
+        startBtn.onclick = start;
+      }
+    };
+  </script>
+</head>
+<body>
+  <p id="display">0.00</p>
+  <input type="button" value="start" id="start">
+  <input type="button" value="stop" id="stop">
+</body>
+</html>

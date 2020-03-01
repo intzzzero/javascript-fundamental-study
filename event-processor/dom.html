@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Processor use DOM</title>
+  <script>
+    function displayTime() {
+      var d = new Date();
+      window.alert("현재 시각은 " + d.toLocaleString() + " 입니다.");
+    }
+
+    window.onload = function() {
+      var btn = document.getElementById("btn");
+      btn.onclick = displayTime;
+    }
+  </script>
+</head>
+<body>
+  <input type="button" value="click" id="btn">
+</body>
+</html>
