@@ -246,5 +246,3 @@ console.log(newString); // microhard
 - **false로 평가되는 피연산자**
   - 0, -0, 빈 문자열(""), NaN, null, undefined
 - truthy와 falsy에 각각 속한 피연산자들을 보면 나름대로의 일관성이 보이는 것을 알 수 있다. 대체적으로 **없음** 의 뉘앙스가 강한 쪽이 false로 평가된다.
-
-## 

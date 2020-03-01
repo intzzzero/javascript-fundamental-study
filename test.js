@@ -185,3 +185,5 @@ const randomString = 'microsoft';
 const newString = randomString.replace('soft', 'hard');
 console.log(randomString);
 console.log(newString);
+
+// test 20
