@@ -246,3 +246,13 @@ console.log(newString); // microhard
 - **false로 평가되는 피연산자**
   - 0, -0, 빈 문자열(""), NaN, null, undefined
 - truthy와 falsy에 각각 속한 피연산자들을 보면 나름대로의 일관성이 보이는 것을 알 수 있다. 대체적으로 **없음** 의 뉘앙스가 강한 쪽이 false로 평가된다.
+
+## 암묵적 타입 변환
+- 자바스크립트에서는 암묵적으로 타입을 변환하는 방법이 있다. 대표적으로 아래와 같은 방법으로 string을 number로 변환이 가능하다.
+```javascript
+var s = '2';
+console.log(s, typeof(s)); // 2 string
+console.log(s-0, typeof(s-0)); // 2 number
+console.log(+s, typeof(+s)); // 2 number
+```
+- 간단하고 편리한 방법이긴 하지만, 놓치고 지나칠 가능성이 농후하므로 되도록 `parseInt`와 같은 명시적인 방법으로 타입을 변환하는 게 좋다고 생각한다.
