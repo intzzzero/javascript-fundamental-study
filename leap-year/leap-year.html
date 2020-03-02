@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leap year</title>
+  <script>
+    window.onload = function() {
+      document.querySelector('.input-btn').onclick = function() {
+        const yearValue = parseInt(document.querySelector('.input-year').value);
+        const isLeapYear = document.querySelector('.output-year'); 
+        if((yearValue % 400 === 0) || ((yearValue % 4 === 0) && (yearValue % 100 !== 0))) {
+          return isLeapYear.innerHTML = `${yearValue}년은 윤년입니다.`;
+        }
+        return isLeapYear.innerHTML = `${yearValue}년은 윤년이 아닙니다.`;
+      };
+    };
+  </script>
+</head>
+<body>
+  <input class="input-year" type="text" placeholder="연도를 입력하세요.">
+  <input type="button" class="input-btn" value="확인">
+  <p class="output-year"></p>
+</body>
+</html>
