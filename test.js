@@ -187,3 +187,7 @@ console.log(randomString);
 console.log(newString);
 
 // test 20
+for (let i = 1, sum = 0; i <= 10; i++) {
+  sum += i;
+  console.log(sum);
+}

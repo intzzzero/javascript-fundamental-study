@@ -288,3 +288,16 @@ console.log(+s, typeof(+s)); // 2 number
 **`window.confirm()`**
   - '확인' 버튼과 '취소' 버튼이 있는 대화상자를 표시
   - '확인'을 누르면 true를, '취소'를 누르면 false가 반환
+
+## for 문 실행순서
+```javascript
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+}
+```
+**아래와 같은 일반적인 for 문이 있을 때, 실행 순서는 다음과 같다.**
+1. 변수 i를 선언 및 0으로 초기화 `let i = 0`
+2. i가 10 보다 작은지 확인 `i < 10`
+3. 블록문 실행 `console.log(i)`
+4. i의 값이 1 증가 `i++`
+5. i의 값이 10이 될 때까지 1번 내용을 제외하고 반복
