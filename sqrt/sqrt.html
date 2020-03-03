@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQRT of Newton-Raphson</title>
+</head>
+<body>
+  <script>
+    const EPSILON = 1.0e-10;
+    let d, xnew, xold;
+    let a = parseFloat(prompt('정수를 입력하시오.'));
+    xold = (a > 1) ? a : 1.0;
+    do {
+      xnew = xold = (xold * xold - a) / (2.0 * xold);
+      d = (xold - xnew) / xold;
+      xold = xnew;
+    } while (d > EPSILON);
+    document.write('sqrt(' + a + ') = ' + xnew);
+  </script>
+</body>
+</html>

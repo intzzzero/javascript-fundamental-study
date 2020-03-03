@@ -45,9 +45,11 @@ console.log(now.getMonth()); //1
 
 ## 함수 선언문의 호이스팅
 - 변수와 마찬가지로 호이스팅이 됨
+- 아래와 같은 **함수선언문** 은 전체가 통째로 호이스팅 됨
 ```javascript
 console.log(square(5)); // 25
 
+// 함수선언문
 function square(x) {
   return x * x;
 }
@@ -62,6 +64,19 @@ function square(x) {
 
 console.log(square(3)); // undefined
 ```
+- 변수와 마찬가지로 **선언문** 만 호이스팅이 되기 때문에, 아래와 같은 **함수표현식** 은 변수명만 호이스팅이 됨.
+```javascript
+// 기명 함수표현식
+const b = function bb() {
+  return 'bb';
+}
+
+// 익명 함수표현식
+const c = function() {
+  return 'c';
+}
+```
+- 함수의 호이스팅은 코드의 순차실행을 저해하고 예측을 어렵하기 때문에 되도록 **함수표현식** 의 사용을 권함
 
 ## 값의 전달, 참조의 전달
 ```javascript
@@ -273,4 +288,3 @@ console.log(+s, typeof(+s)); // 2 number
 **`window.confirm()`**
   - '확인' 버튼과 '취소' 버튼이 있는 대화상자를 표시
   - '확인'을 누르면 true를, '취소'를 누르면 false가 반환
-
