@@ -203,3 +203,22 @@ function sumArray(a) {
 
 const a = [3, 5, 1, 2, 6, 7];
 console.log(sumArray(a)); // 24
+
+// test 22
+var a = [2, 5, 7, 12, 16, 32, 49], b = [4, 9, 14, 17, 22, 30, 32, 41];
+loop: for (var i = 0; i < a.length; i++) {
+  for (var j = 0; j < b.length; j++) {
+    if (a[i] == b[j]) break loop;
+  }
+}
+
+console.log(`a[${i}] = b[${j}]`);
+
+// test 23
+const a = [2, 5, -1, 7, -3, 6, 9, 15, 27];
+for (var i = 0, sum = 0; i < a.length; i++) {
+  if (a[i] < 0) continue;
+  sum += a[i];
+}
+
+console.log(sum);
