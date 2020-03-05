@@ -156,6 +156,29 @@ circle.center; // {x: 2, y: 4}
 3. **프로그램의 수정이 간단해진다.**
   - 수정해야 할 일이 있을 때 해당되는 함수만 수정하면 된다.
 
+## 함수를 정의하는 방법
+1. 함수 선언문
+```javascript
+function square(x) {
+  return x * x;
+}
+```
+2. 함수 리터럴
+```javascript
+const square = function(x) {
+  return x * x;
+};
+```
+3. Function 생성자
+```javascript
+const square = new Function('x', 'return x * x);
+```
+4. 화살표(arrow) 함수 표현식
+```javascript
+const square = x => x * x;
+```
+- 함수 선언문을 제외한 세 가지 방법은 호이스팅이 되지 않기 때문에 **변수에 할당 후에 사용이 가능** 하며, 따라서 호출하는 코드보다 상단에 위치해야 한다.
+
 ## 생성자 함수
 - Java나 C++ 등의 객체지향 언어에는 **클래스(class)** 라는 객체 생성 방법이 있다.
 - 자바스크립트에는 클래스가 없지만, 대신 **프로토타입(prototype)** 이 있기 때문에 클래스와 유사한 방식으로 객체를 생성할 수 있다.

@@ -222,3 +222,17 @@ for (var i = 0, sum = 0; i < a.length; i++) {
 }
 
 console.log(sum);
+
+// test 24
+function norm(x) {
+  var sum2 = sumSquare();
+  return Math.sqrt(sum2);
+  function sumSquare() {
+    sum = 0;
+    for (var i = 0; i < x.length; i++) sum += x[i] * x[i];
+    return sum;
+  }
+}
+
+var a = [2, 1, 3, 5, 7];
+var n = norm(a);
