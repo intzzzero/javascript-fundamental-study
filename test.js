@@ -236,3 +236,15 @@ function norm(x) {
 
 var a = [2, 1, 3, 5, 7];
 var n = norm(a);
+
+// test 25
+function myConcat(separator) {
+  var s = '';
+  for (var i = 1; i < arguments.length; i++) {
+    s += arguments[i];
+    if (i < arguments.length - 1) s += separator;
+  }
+  return s;
+}
+
+console.log(myConcat('/', 'apple', 'orange', 'peach'));
