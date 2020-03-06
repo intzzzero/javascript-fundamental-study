@@ -354,3 +354,22 @@ const x = (function() {
   // something
 })();
 ```
+
+## 인수의 생략
+- 함수 정의식에서 요구하는 인자의 개수보다 적은 인수를 전달할 경우 생략된 부분은 undefined가 된다.
+```javascript
+function(x, y) {
+  console.log(`x = ${x}, y = ${y}`);
+}
+f(2); // x = 2, y = undefined
+```
+- 만약 두 개 이상의 인자를 연산하여 반환해야 할 때에는 undefined가 나오는 것을 막기 위해 아래와 같이 or 연산자(||)를 활용할 수 있다.
+```javascript
+function multiply(a, b) {
+  b = b || 1; // b가 falsy값이면 1을 할당
+  return a * b;
+}
+multiply(2, 3); // 6
+multiply(2); // 2
+```
+
