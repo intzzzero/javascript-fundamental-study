@@ -327,3 +327,30 @@ for (let i = 0; i < 10; i++) {
 
 ## 객체 지향 프로그래밍의 의미
 **객체 지향 프로그래밍(OOP: Object Oriented Programming)** 이란, 프로그램을 작성하는 방법 중 하나로 프로그램을 객체라고 부르는 부품 여러 개로 구성하여 만드는 방법이다. 이때, 객체란 데이터와 데이터를 처리하는 함수(메서드)를 한곳에 모아둔 덩어리를 말한다.
+
+## 즉시 실행 함수(Immediately-invoked function)
+- 자바스크립트에는 익명 함수를 정의하는 동시에 실행되는 **즉시 실행 함수** 라는 것이 있다.
+- 즉시 실행 함수는 전역 유효 범위(global scope)를 오염시키지 않는 이름 공간(name space)를 생성할 때 사용한다.
+- 즉시 실행 함수는 아래와 같이 정의한다.
+```javascript
+// 첫 번째 방법
+(function() {
+  // something
+})();
+
+// 두 번째 방법
+(function() {
+  // something
+}());
+
+// 인수를 넣을 수도 있음
+(function fact(n) {
+  if (n <= 1) return 1;
+  return n * fact(n - 1);
+})(5); // 120
+
+// 변수에 할당 가능
+const x = (function() {
+  // something
+})();
+```
