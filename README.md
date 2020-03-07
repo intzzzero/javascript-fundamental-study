@@ -400,6 +400,8 @@ fact(5); // 120
     - 외부 렉시컬 환경 참조(Outer Lexical Environment Reference)
   - 변수 환경(Variable Environment)
   - 디스 바인딩(This Binding)
+
+**실행 컨텍스트의 구조를 의사 코드로 표현하면 아래와 같다.**
   ```javascript
   // 실행 컨텍스트의 구조를 보여주는 pseudo code
   ExecutionContext = {
