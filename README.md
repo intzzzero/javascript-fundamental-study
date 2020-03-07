@@ -389,3 +389,28 @@ fact(5); // 120
   - 재귀 함수가 멈추는 조건이 반드시 있어야 하며, 그렇지 않으면 스택 오버플로우(stact overflow)를 일으키게 된다.
 2. **재귀 호출을 통해 문제를 간단히 해결할 수 있을 때만 사용한다.**
   - 재귀 함수는 메모리를 많이 차지하는 작업이다. 따라서 while문이나 for문으로 해결 가능하다면 재귀 함수를 지양하는 것이 좋다.
+
+## 실행 컨텍스트(Execution Centext)
+- 실행 가능한 코드가 실제로 실행되고 관리되는 영역
+- 실행에 필요한 모든 정보를 여러 컴포넌트에 나누어서 관리함.
+  - 렉시컬 환경(Lexical Environment)
+    - 환경 레코드(Environment Record)
+      - 선언적 환경 레코드(Declarative Environment Record)
+      - 객체 환경 레코드(Object Environment Record)
+    - 외부 렉시컬 환경 참조(Outer Lexical Environment Reference)
+  - 변수 환경(Variable Environment)
+  - 디스 바인딩(This Binding)
+  ```javascript
+  // 실행 컨텍스트의 구조를 보여주는 pseudo code
+  ExecutionContext = {
+    LexicalEnvironment: {
+      EnvironmentRecord: {
+        DeclarativeEnvironmentRecord: {},
+        ObjectEnvironmentRecord: {}
+      },
+      OuterLexicalEnvironmentReference: {}
+    },
+    VariableEnvironment: {},
+    ThisBinding: null
+  }
+  ```
