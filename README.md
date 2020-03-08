@@ -420,3 +420,5 @@ fact(5); // 120
   - [(JavaScript) 함수의 범위(scope) - lexical scoping - ZeroCho Blog](https://www.zerocho.com/category/Javascript/post/5740531574288ebc5f2ba97e)
   - [(JavaScript) 실행 컨텍스트 - 클로저와 호이스팅 - ZeroCho Blog](https://www.zerocho.com/category/Javascript/post/5741d96d094da4986bc950a0)
   - [클로저 - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)
+  - [Execution context and the call stack — visually illustrated by a slice of tasty cake](https://medium.com/free-code-camp/execution-context-and-the-call-stack-visually-illustrated-by-a-slice-of-tasty-cake-14f9a64dc460)
+  - [Understanding Execution Context and Execution Stack in Javascript](https://blog.bitsrc.io/understanding-execution-context-and-execution-stack-in-javascript-1c9ea8642dd0)
