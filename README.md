@@ -391,7 +391,8 @@ fact(5); // 120
   - 재귀 함수는 메모리를 많이 차지하는 작업이다. 따라서 while문이나 for문으로 해결 가능하다면 재귀 함수를 지양하는 것이 좋다.
 
 ## 실행 컨텍스트(Execution Centext)
-- 실행 가능한 코드가 실제로 실행되고 관리되는 영역
+- 자바스크립트 엔진은 실행 가능한 코드(Executable Code)를 만나면 그 코드를 평가(Evaluation)하여 실행 컨텍스트(Execution Context)를 만든다.
+- 실행 컨텍스트는, 실행 가능한 코드가 실제로 실행되고 관리되는 영역이다.
 - 실행에 필요한 모든 정보를 여러 컴포넌트에 나누어서 관리함.
   - 렉시컬 환경(Lexical Environment)
     - 환경 레코드(Environment Record)
@@ -422,3 +423,16 @@ fact(5); // 120
   - [클로저 - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)
   - [Execution context and the call stack — visually illustrated by a slice of tasty cake](https://medium.com/free-code-camp/execution-context-and-the-call-stack-visually-illustrated-by-a-slice-of-tasty-cake-14f9a64dc460)
   - [Understanding Execution Context and Execution Stack in Javascript](https://blog.bitsrc.io/understanding-execution-context-and-execution-stack-in-javascript-1c9ea8642dd0)
+
+## 렉시컬 환경(Lexical Environment)
+- 자바스크립트 엔진이 코드를 실행하기 위해 자원을 모아 둔 곳
+- 해당 유효 범위(Scope) 안에 있는 식별자와 식별자가 가리키는 값을 `key : value`의 형태로 바인드하여 렉시컬 환경 컴포넌트에 기록한다.
+```javascript
+LexicalEnvironment: {
+  EnvironmentRecord: {},
+  OuterLexicalEnvironmentReference: {}
+}
+```
+- 렉시컬 환경 컴포넌트에는 위와 같이 **환경 레코드(Environment Record)** 와 **외부 렉시컬 환경 참조(Outer Lexical Environment Reference)** 가 있다.
+  - 환경 레코드: 유효 범위 내의 식별자와 값이 기록되어 있으며, 함수가 호출되면 1차적으로 이곳에서 식별자를 탐색한다.
+  - 외부 렉시컬 환경 참조: 유효 범위 너머의 식별자와 값이 기록되어 있는 곳으로, 환경 레코드에서 해당 식별자를 찾을 수 없을 때 외부 렉시컬 환경 참조를 탐색하게 된다.
