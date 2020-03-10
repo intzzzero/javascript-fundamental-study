@@ -440,3 +440,12 @@ LexicalEnvironment: {
 - 최상위의 렉시컬 환경은 **전역 환경(Global Environment)** 과 바인딩되어 있으며, 이곳에서의 외부 렉시컬 환경 참조는 `null`이다.
 - **결국 호이스팅(Hoisting)은, 자바스크립트의 식별자들이 해당 스코프의 렉시컬 환경에 등록된 결과라고 볼 수 있다.**
 
+## 콜 스택(Call Stack)
+> 후입선출(LIFO, Last In First Out) 방식으로 아래부터 데이터를 쌓아 올려 가장 마지막에 추가된 데이터부터 내보내는 자료구조를 **스택(Stack)** 이라고 한다.
+> 이때, 데이터를 쌓는 행위를 **push** 라고 하고, 스택의 가장 윗부분에서 데이터를 꺼내는 행위를 **pop** 이라고 한다.
+
+- 실행 컨텍스트(Execution Context)는 프로그램 실행 중 스택에 push되어 실행이 된다. 이때, 전역 코드(Global Execution Context)는 브라우저의 시작과 동시에 실행되어 브라우저를 종료할 때까지 스택의 가장 아래에 위치한다.
+- 함수가 호출되면, 해당 스코프에 해당되는 실행 컨텍스트가 스택에 push 되어 실행되며, 해당 함수의 작업이 끝나면 호출했던 부분으로 제어권이 돌아오면서 스택에서 pop 된다. 이처럼 함수가 호출될 때마다 스택에 쌓인다 하여 **콜 스택(Call Stack)** 이라고 부른다.
+
+- **참고:**
+  - [자바스크립트의 동작원리: 엔진, 런타임, 호출 스택 • Captain Pangyo](https://joshua1988.github.io/web-development/translation/javascript/how-js-works-inside-engine/)
