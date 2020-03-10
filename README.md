@@ -453,11 +453,11 @@ LexicalEnvironment: {
 ## 스코프 체인(Scope Chain)
 - 내부 스코프에서 필요한 식별자를 찾을 수 없을 때 외부 스코프의 렉시컬 환경과 외부 렉시컬 환경 참조를 점진적으로 탐색하게 되는데, 이처럼 내부와 외부 스코프가 이어진 것을 **스코프 체인(Scope Chain)** 이라고 부른다.
 ```javascript
-const a = 'A';
+var a = 'A';
 function f() {
-  const b = 'B';
+  var b = 'B';
   function g() {
-    const c = 'C';
+    var c = 'C';
     console.log(a + b + c);
   }
   g();
