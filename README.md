@@ -473,3 +473,11 @@ f(); // ABC
 
 - **참고:**
   - [Scope | PoiemaWeb](https://poiemaweb.com/js-scope)
+
+## 가비지 컬렉션(garbage collection)
+- 자바스크립트 엔진 내부에는 **가비지 컬렉터(garbage collector)** 가 쉬지 않고 동작하며, **참조가 없는 객체를 메모리에서 해제한다.** 그리고, 이러한 매커니즘을 가비지 컬렉션이라고 한다.
+- 가비지 컬렉터 덕분에 메모리의 공간 확보를 직접 하지 않아도 되는 만큼 메모리에는 크게 신경 쓰지 않아도 되지만, 메모리 누수로 인해 퍼포먼스가 저하될 가능성이 없지 않기 때문에 전혀 고려하지 않아도 되는 것은 아니다.
+
+- **참고:**
+  - [가비지 컬렉션](https://ko.javascript.info/garbage-collection)
+
