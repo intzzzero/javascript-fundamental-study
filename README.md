@@ -481,3 +481,43 @@ f(); // ABC
 - **참고:**
   - [가비지 컬렉션](https://ko.javascript.info/garbage-collection)
 
+## 클로저(closure)
+- 클로저의 주 사용 목적은 외부로부터 내부의 상태를 숨기는 **캡슐화(encapsulation)** 에 있다.
+```javascript
+function makeCounter() {
+  var count = 0;
+  return f;
+  function f() { // 보통은 익명함수를 사용하지만, 편의를 위해 이름을 붙임
+    return count++;
+  }
+}
+
+var counter = makeCounter();
+console.log(counter()); // 0
+console.log(counter()); // 1
+console.log(counter()); // 2
+```
+**위와 같은 클로저가 있을 때 다음과 같은 특징을 알 수 있다.**
+1. 외부 함수 `makeCounter`는 중첩 함수 `f`의 참조를 반환한다.
+2. 중첩 함수 `f`는 외부 함수 `makeCounter`의 지역 변수 `count`를 참조한다.
+3. 전역 변수 `counter`에 함수 `makeCounter`를 할당하였으므로, 전역 변수 `counter`는 중첩 함수 `f`의 함수 객체를 참조한다.
+4. `f`의 함수 객체는 함수 `makeCounter`의 렉시컬 환경 컴포넌트를 참조한다.
+5. 결과적으로, 전역 변수 `counter`는 중첩 함수 `f`의 함수 객체를 통해 간접적으로 외부 함수 `makeCounter`의 렉시컬 환경 컴포넌트를 참조한다.
+
+**클로저의 핵심:**
+- 외부 함수를 호출하면 해당 함수의 렉시컬 환경 컴포넌트가 생성되며, 중첩 함수의 함수 객체를 생성 및 반환한다.
+- 외부 함수는 클로저를 생성하는 팩토리 함수이며, 클로저의 주 기능은 중첩함수에 담겨있다.
+- 외부 함수가 속한 렉시컬 환경 컴포넌트는 클로저 내부 상태 자체이며, 외부 함수가 호출될 때마다 새로 생성된다.
+```javascript
+var counter = makeCounter();
+console.log(counter()); // 0
+console.log(counter()); // 1
+console.log(counter()); // 2
+
+var counter2 = makeCounter();
+console.log(counter2()); // 0
+console.log(counter2()); // 1
+console.log(counter2()); // 2
+```
+- 중첩 함수의 함수 객체가 있는 한 외부 함수가 속한 렉시컬 환경 컴포넌트를 지워지지 않으며, 외부 함수의 함수 객체가 사라져도 지워지지 않는다.
+- 클로저 내부 상태(외부 함수의 지역 변수, 선언적 환경 레코드)는 외부로부터 은폐되어 있으며 중첩 함수 안에서만 읽거나 쓸 수 있다.
