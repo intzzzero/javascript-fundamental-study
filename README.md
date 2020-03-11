@@ -525,4 +525,4 @@ console.log(counter2()); // 2
 **참고:**
   - [클로저 - 생활코딩](https://opentutorials.org/course/743/6544)
   - [클로저 - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)
-  - [자바스크립트 클로저(Closure)에 대해서... :: Outsider's Dev Story](https://blog.outsider.ne.kr/506)
+  - [Closure | PoiemaWeb](https://poiemaweb.com/js-closure)
