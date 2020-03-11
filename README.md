@@ -521,3 +521,8 @@ console.log(counter2()); // 2
 ```
 - 중첩 함수의 함수 객체가 있는 한 외부 함수가 속한 렉시컬 환경 컴포넌트를 지워지지 않으며, 외부 함수의 함수 객체가 사라져도 지워지지 않는다.
 - 클로저 내부 상태(외부 함수의 지역 변수, 선언적 환경 레코드)는 외부로부터 은폐되어 있으며 중첩 함수 안에서만 읽거나 쓸 수 있다.
+
+**참고:**
+  - [클로저 - 생활코딩](https://opentutorials.org/course/743/6544)
+  - [클로저 - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)
+  - [자바스크립트 클로저(Closure)에 대해서... :: Outsider's Dev Story](https://blog.outsider.ne.kr/506)
