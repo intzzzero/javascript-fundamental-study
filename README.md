@@ -567,3 +567,47 @@ console.log(counter2()); // 2
   - [클로저 - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)
   - [Closure | PoiemaWeb](https://poiemaweb.com/js-closure)
 
+## 네임 스페이스(Name space) 오염을 줄이는 방법
+전역 변수와 전역 함수 등을 남발하게 되면 라이브러리를 쓴다거나 협업을 할 때 식별자가 충돌할 수가 있다. 따라서 전역 변수의 사용이 불가피할 경우에는 소스 코드 상단에 모아서 한눈에 파악할 수 있게 하는 것이 좋다.
+
+그리고, 네임 스페이스의 오염을 최소화 하기 위한 방법으로는 다음과 같은 것들이 있다.
+1. **객체를 네임 스페이스로 활용하기**
+  - 프로그램을 대표할만한 이름의 전역 변수를 하나 생성하여 객체를 값으로 할당하고, 프로그램에서 필요한 모든 변수와 함수를 프로퍼티로 정의한다.
+  ```javascript
+  var myApp = myApp || {};
+
+  myApp.name = 'Tom';
+  myApp.showName = function() {
+    // something
+  };
+  myApp.view = {}; // 내부에 또 다른 네임 스페이스를 만들 수도 있다.
+  myApp.view.draw = function() {
+    // something
+  };
+  ```
+
+2. **즉시 실행 함수로 감싸기**
+  - 일시적인 처리를 수행하는 내용들을 즉시 실행 함수로 감싸면 중복된 이름이 있더라도 전역 네임 스페이스를 오염시키지 않고 실행이 가능하다.
+
+3. **모듈 패턴**
+  - 모듈(module)은 여러 기능을 하나로 묶은 것으로, 클로저(closure)를 즉시 실행 함수(IIFE)로 감싼 형태다.
+  - 이를 통하여 내부의 변수나 함수는 은폐하고, 원하는 함수만 공개할 수 있다.
+  ```javascript
+  var Module = Module || {};
+  
+  (function(_Module) {
+    var name = 'NoName'; // 프라이빗 변수
+    function getName() { // 프라이빗 함수
+      return name;
+    }
+    _Module.showName = function() { // 퍼블릭 함수
+      console.log(getName());
+    };
+    _Module.setName = function(x) { // 퍼블릭 함수
+      name = x;
+    };
+  })(Module)
+
+  Module.setName('Tom');
+  Module.showName(); // Tom
+  ```
