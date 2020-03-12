@@ -474,6 +474,56 @@ f(); // ABC
 - **참고:**
   - [Scope | PoiemaWeb](https://poiemaweb.com/js-scope)
 
+## 스코프(scope)와 실행 컨텍스트(execution context)의 차이
+- 스코프는 변수의 **유효 범위** 이며, 실행 컨텍스트는 실행되는 코드 덩어리라는 추삭적 개념.
+- 스코프는 함수가 **정의될 때** 결정되며, 실행 컨텍스트는 함수가 **실행될 때** 생성된다.
+
+## 함수의 실행 절차
+```javascript
+var a = 1;
+function outer() {
+  console.log(a); // 1
+
+  function inner() {
+    console.log(a); // undefined
+    var a = 3;
+  }
+
+  inner();
+
+  console.log(a); // 1
+}
+
+outer();
+console.log(a); // 1
+```
+**위와 같은 코드가 있을 때 내부적인 실행 절차는 다음과 같다.**
+1. 전역 실행 컨텍스트 생성
+
+- Global Execution Context
+  2. 전역 변수 `a` 선언(호이스팅)
+  3. 외부 함수 `outer` 선언(호이스팅)
+  4. 변수 `a`에 1 할당
+  5. `outer` 함수 호출 및 `outer` 실행 컨텍스트 생성
+
+- outer Execution Context
+  6. 함수 `inner` 선언(`outer` 스코프에서 호이스팅)
+  7. `outer` 스코프에서 `a` 탐색하지만 찾을 수 없으므로 전역 스코프에서 재탐색 후 1 출력
+  8. 중첩 함수 `inner` 호출 및 `inner` 실행 컨텍스트 생성
+
+- inner Execution Context
+  9. 지역 변수 `a` 선언(`inner` 스코프에서 호이스팅)
+  10. `inner` 스코프에서 `a` 탐색 후 출력하지만 호이스팅만 된 단계이므로 `undefined` 출력
+  11. 지역 변수 `a`에 3 할당
+
+- outer Execution Context
+  12. `inner` 실행 컨텍스트 종료
+  13. 제어권이 `outer` 실행 컨텍스트로 돌아오며 전역 스코프에서 변수 `a` 탐색 후 1 출력
+
+- Global Execution Context
+  14. `outer` 실행 컨텍스트 종료
+  15. 전역 스코프에서 변수 `a` 탐색 후 1 출력
+
 ## 가비지 컬렉션(garbage collection)
 - 자바스크립트 엔진 내부에는 **가비지 컬렉터(garbage collector)** 가 쉬지 않고 동작하며, **참조가 없는 객체를 메모리에서 해제한다.** 그리고, 이러한 매커니즘을 가비지 컬렉션이라고 한다.
 - 가비지 컬렉터 덕분에 메모리의 공간 확보를 직접 하지 않아도 되는 만큼 메모리에는 크게 신경 쓰지 않아도 되지만, 메모리 누수로 인해 퍼포먼스가 저하될 가능성이 없지 않기 때문에 전혀 고려하지 않아도 되는 것은 아니다.
@@ -526,3 +576,4 @@ console.log(counter2()); // 2
   - [클로저 - 생활코딩](https://opentutorials.org/course/743/6544)
   - [클로저 - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)
   - [Closure | PoiemaWeb](https://poiemaweb.com/js-closure)
+
