@@ -614,3 +614,4 @@ console.log(counter2()); // 2
 - **참고:**
   - [JavaScript 자바스크립트 모듈 패턴을 이용한 캡슐화 :: 심플한 코딩 백과사전](https://webcoding.tistory.com/entry/JavaScript-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%AA%A8%EB%93%88-%ED%8C%A8%ED%84%B4%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BA%A1%EC%8A%90%ED%99%94)
   - [Object-Oriented Programming | PoiemaWeb](https://poiemaweb.com/js-object-oriented-programming)
+  - [(JavaScript) 디자인 패턴(싱글턴, 모듈, 생성자) - ZeroCho Blog](https://www.zerocho.com/category/Javascript/post/57541bef7dfff917002c4e86)
