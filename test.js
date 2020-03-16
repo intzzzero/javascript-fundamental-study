@@ -248,3 +248,13 @@ function myConcat(separator) {
 }
 
 console.log(myConcat('/', 'apple', 'orange', 'peach'));
+
+// test 26
+function say(greetings, honorifics) {
+  console.log(greetings + '' + honorifics + this.name);
+}
+
+const tom = { name: 'Tom Sawyer' };
+const becky = { name: 'Becky Thatcher' };
+say.apply(tom, ['Hello! ', 'Mr.']); // Hello! Mr.Tom Sawyer
+say.call(becky, 'Hi ', 'Ms.'); // Hi Ms.Becky Thatcher
