@@ -14,6 +14,7 @@ const fibonacci = memorize(function(n) {
   }
   return fibonacci(n-1) + fibonacci(n-2);
 });
+
 for (let i = 0; i <= 20; i++) {
   console.log(('' + i).slice(-2) + ':' + fibonacci(i));
 }

@@ -1,10 +1,25 @@
+// function memorize(f) {
+//   let cache = {};
+//   return function(x) {
+//     if (cache[x] === undefined) {
+//       cache[x] = f(x);
+//     }
+//     return cache[x];
+//   };
+// }
+
+// 인수를 여러 개 받을 수 있는 메모이제이션
 function memorize(f) {
   let cache = {};
-  return function(x) {
-    if (cache[x] === undefined) {
-      cache[x] = f(x);
+  return function() {
+    let key = '';
+    for (let i = 0; i < arguments.length; i++) {
+      key += arguments[i] + ',';
     }
-    return cache[x];
+    if (cache[key] === undefined) {
+      cache[key] = f.apply(null, arguments);
+    }
+    return cache[key];
   };
 }
 
