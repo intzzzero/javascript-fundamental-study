@@ -688,3 +688,4 @@ const f = (a, b) => ({x:a, y:b}); // 반환값이 객체 리터럴이라면 괄�
   - [화살표 함수 기초](https://ko.javascript.info/arrow-functions-basics)
   - [화살표 함수에 대한 재고](https://ko.javascript.info/arrow-functions)
   - [메서드와 ‘this’](https://ko.javascript.info/object-methods)
+  - [제너레이터](https://ko.javascript.info/generators)
