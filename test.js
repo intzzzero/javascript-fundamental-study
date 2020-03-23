@@ -258,3 +258,4 @@ const tom = { name: 'Tom Sawyer' };
 const becky = { name: 'Becky Thatcher' };
 say.apply(tom, ['Hello! ', 'Mr.']); // Hello! Mr.Tom Sawyer
 say.call(becky, 'Hi ', 'Ms.'); // Hi Ms.Becky Thatcher
+
