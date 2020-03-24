@@ -259,3 +259,12 @@ const becky = { name: 'Becky Thatcher' };
 say.apply(tom, ['Hello! ', 'Mr.']); // Hello! Mr.Tom Sawyer
 say.call(becky, 'Hi ', 'Ms.'); // Hi Ms.Becky Thatcher
 
+// test 27
+// arrow function
+const square = (x) => {return x*x}; // 함수 표현식
+const f = (x, y, z) => {...}; // 인수가 여럿이라면 쉼표로 구분
+const square = x => {return x*x}; // 인수가 하나라면 괄호 생략 가능
+const f = () => {...}; // 인수가 없을 때에는 빈 괄호 필수
+const square = x => x*x; // 함수 바디에 return문만 있으면 return 생략 가능
+const f = (a, b) => ({x:a, y:b}); // 반환값이 객체 리터럴이라면 괄호 필수
+(x => x*x)(3); // 즉시실행함수(IIFE)로 화살표 함수 사용 가능

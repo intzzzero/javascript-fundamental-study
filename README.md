@@ -689,3 +689,10 @@ const f = (a, b) => ({x:a, y:b}); // 반환값이 객체 리터럴이라면 괄�
   - [화살표 함수에 대한 재고](https://ko.javascript.info/arrow-functions)
   - [메서드와 ‘this’](https://ko.javascript.info/object-methods)
   - [제너레이터](https://ko.javascript.info/generators)
+
+## 이터레이터(iterator)
+- 이터레이터는 **반복 처리(iteration)가 가능한 객체** 를 말한다.
+- `Symbol.iterator` 메서드를 갖고 있는 객체를 **반복 가능(iterable) 한 객체** 라고 한다.
+
+- **참고:**
+  - [iterable 객체](https://ko.javascript.info/iterable)
