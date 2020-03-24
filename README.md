@@ -692,7 +692,34 @@ const f = (a, b) => ({x:a, y:b}); // 반환값이 객체 리터럴이라면 괄�
 
 ## 이터레이터(iterator)
 - 이터레이터는 **반복 처리(iteration)가 가능한 객체** 를 말한다.
-- `Symbol.iterator` 메서드를 갖고 있는 객체를 **반복 가능(iterable) 한 객체** 라고 한다.
+- `[Symbol.iterator]` 메서드를 갖고 있는 객체를 **반복 가능(iterable) 한 객체** 라고 한다.
+- 주의해야 할 것은 **이터레이터 객체 != 이터러블 객체** 라는 점이다.
+- 또한 **이터러블 != 유사 배열** 역시 다르다.
+  - 유사 배열에는 `index`와 `length` 프로퍼티가 있다.
+  - 이터러블이라고 해서 꼭 유사 배열인 것은 아니며, 유사 배열이라고 해서 꼭 이터러블인 것도 아니다. 그러나 이터러블과 유사 배열의 특성을 동시에 갖는 객체도 있다. 대표적으로 문자열(String)이 그렇다.
+  ```javascript
+  const str = 'this is string';
+  const iter = str[Symbol.iterator]();
+  console.log(iter.next()); // {value: "t", done: false}
+
+  for (let v of str) console.log(v);
+  /*
+  t
+  h
+  i
+  s
+
+  i
+  s
+
+  s
+  t
+  r
+  i
+  n
+  g
+  */
+  ```
 
 - **참고:**
   - [iterable 객체](https://ko.javascript.info/iterable)
