@@ -697,6 +697,24 @@ const f = (a, b) => ({x:a, y:b}); // 반환값이 객체 리터럴이라면 괄�
 - 또한 **이터러블 != 유사 배열** 역시 다르다.
   - 유사 배열에는 `index`와 `length` 프로퍼티가 있다.
   - 이터러블이라고 해서 꼭 유사 배열인 것은 아니며, 유사 배열이라고 해서 꼭 이터러블인 것도 아니다. 그러나 이터러블과 유사 배열의 특성을 동시에 갖는 객체도 있다. 대표적으로 문자열(String)이 그렇다.
+  ```javascript
+  const str = 'string';
+
+  // [Symbol.iterator]를 갖고 있기 때문에 for..of가 가능하다.
+  for (let v of str) console.log(v);
+  /*
+  s
+  t
+  r
+  i
+  n
+  g
+  */
+
+  // 동시에 index와 length도 갖고 있다.
+  console.log(str.length); // 6
+  console.log(str[3]); // i
+  ```
 
 - **참고:**
   - [iterable 객체](https://ko.javascript.info/iterable)
