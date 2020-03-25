@@ -9,7 +9,7 @@
       const dx = [1, 0, -1, 0], dy = [0, 1, 0, -1];
       let x = x0;
       let y = y0;
-      c.strokeStyle = 'green';
+      c.strokeStyle = 'deeppink';
       c.globalAlpha = 0.25;
       while (true) {
         yield;
@@ -25,10 +25,15 @@
     window.onload = function() {
       const canvas = document.querySelector('.mycanvas');
       const ctx = canvas.getContext('2d');
-      const iter = randomWalk(ctx, 300, 300, 4, 'green');
+      const iter = randomWalk(ctx, 300, 300, 4, 'deeppink');
       setInterval(() => { iter.next(); }, 10);
     };
   </script>
+  <style>
+    body {
+      background: rgb(32, 32, 32);
+    }
+  </style>
 </head>
 <body>
   <canvas class="mycanvas" width="600" height="600"></canvas>
