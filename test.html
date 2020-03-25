@@ -9,11 +9,19 @@
   <script>const log = console.log;</script>
 
   <script>
+
+
+
+
     function* createNumbers(from, to) {
       while (from <= to) yield from++;
     }
-    const iter = createNumbers(10, 20);
+    const iter = createNumbers(1, 10);
     for (let v of iter) log(v);
+
+
+
+
   </script>
 </body>
 </html>
