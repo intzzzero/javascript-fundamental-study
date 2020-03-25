@@ -702,7 +702,7 @@ const f = (a, b) => ({x:a, y:b}); // 반환값이 객체 리터럴이라면 괄�
   const str = 'string';
 
   // 아래와 같이 이터러블의 [Symbol.iterator] 메서드와
-  // 유사 배열의 index, length 프로퍼터를 동시에 지닌다.
+  // 유사 배열의 index, length 프로퍼티를 동시에 지닌다.
   str[Symbol.iterator](); // StringIterator {}
   str.length; // 6
   str[0]; // "s"
@@ -710,3 +710,31 @@ const f = (a, b) => ({x:a, y:b}); // 반환값이 객체 리터럴이라면 괄�
 
 - **참고:**
   - [iterable 객체](https://ko.javascript.info/iterable)
+
+## 제너레이터(generator)
+- 반복 가능한 이터레이터를 값으로 반환
+- 작업의 일시 정지와 재시작이 가능하며 자신의 상태를 관리
+- 제너레이터는 아래와 같이 `function*` 문으로 정의하며, 하나 이상의 `yield` 표현식을 포함한다.
+```javascript
+function* gen() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const iter = get();
+console.log(iter.next()); // {value: 1, done: false}
+console.log(iter.next()); // {value: 2, done: false}
+console.log(iter.next()); // {value: 3, done: false}
+console.log(iter.next()); // {value: undefined, done: true}
+```
+- 위와 같이 제너레이터 함수의 `yield`는 프로그램이 일시적으로 정지하는 위치라고 할 수 있다.
+- `yield` 표현식은 지정된 표현식을 값으로 갖고, 이를 변수에 대입할 수 있다.
+```javascript
+const a = yield 2;
+```
+- 제너레이터로 생성한 이터레이터는 이터러블이므로 `for..of`문을 쓸 수 있다.
+
+
+- **참고:**
+  - 
