@@ -737,4 +737,6 @@ const a = yield 2;
 
 
 - **참고:**
-  - 
+  - [yield - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/yield)
+  - [ES6의 제너레이터를 사용한 비동기 프로그래밍 : TOAST Meetup](https://meetup.toast.com/posts/73)
+  - [제너레이터](https://ko.javascript.info/generators)
