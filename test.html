@@ -9,17 +9,9 @@
   <script>const log = console.log;</script>
 
   <script>
-
-
-
-
-    function* createNumbers(from, to) {
-      while (from <= to) yield from++;
-    }
-    const iter = createNumbers(1, 10);
-    for (let v of iter) log(v);
-
-
+    function list() { return arguments; }
+    const t = list`a${1}b${2}c${3}`;
+    for (let v of t) log(v);
 
 
   </script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibonacci with Generator</title>
+</head>
+<body>
+  <script>const log = console.log;</script>
+
+  <script>
+    function* fibonacci() {
+      let fn1 = 0, fn2 = 1;
+      while (true) {
+        const fnew = fn1 + fn2;
+        fn1 = fn2;
+        fn2 = fnew;
+        reset = yield fn1;
+        if (reset) {
+          fn1 = 0, fn2 = 1;
+        }
+      }
+    }
+    const iter = fibonacci();
+    for (let i = 0; i < 10; i++) {
+      log(iter.next().value);
+    }
+    log(iter.next().value);
+    log(iter.next(true).value);
+    log(iter.next().value);
+    log(iter.next().value);
+  
+
+  </script>
+</body>
+</html>
