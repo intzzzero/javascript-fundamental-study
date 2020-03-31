@@ -6,25 +6,32 @@
   <title>test</title>
 </head>
 <body>
-  <script>const log = console.log;</script>
-
   <script>
-    let objA = {
-      name: 'Tom',
-      sayhello: function() { log('Hello! ' + this.name );}
+
+
+
+
+
+    function Circle(center, radius) {
+      this.center = center;
+      this.radius = radius;
+    }
+
+    Circle.prototype.area = function() {
+      return Math.PI * this.radius * this.radius;
     };
 
-    let objB = {
-      name: 'Huck'
-    };
+    const c = new Circle({x:0, y:0}, 3.0);
+    console.log(c.area());
 
-    objB.__proto__ = objA;
-    let objC = {};
-    objC.__proto__ = objB;
-    objC.sayhello();
-    console.dir(objC);
-    log(objC.__proto__);
+
+
+
+
+
+
 
   </script>
+
 </body>
 </html>
