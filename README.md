@@ -740,3 +740,11 @@ const a = yield 2;
   - [yield - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/yield)
   - [ES6의 제너레이터를 사용한 비동기 프로그래밍 : TOAST Meetup](https://meetup.toast.com/posts/73)
   - [제너레이터](https://ko.javascript.info/generators)
+
+## 프로토타입(prototype)
+- 자바스크립트의 모든 객체는 `[[Prototype]]`이라고 하는 **내부 슬롯(internal slot)**을 지닌다.
+
+- **참고:**
+  - [poiemaweb - 프로토타입](https://poiemaweb.com/js-prototype)
+  - [poiemaweb - 클래스](https://poiemaweb.com/es6-class)
+  - [코어자바스크립트 - 프로토타입 상속](https://ko.javascript.info/prototype-inheritance)

@@ -9,7 +9,22 @@
   <script>const log = console.log;</script>
 
   <script>
-    
+    let objA = {
+      name: 'Tom',
+      sayhello: function() { log('Hello! ' + this.name );}
+    };
+
+    let objB = {
+      name: 'Huck'
+    };
+
+    objB.__proto__ = objA;
+    let objC = {};
+    objC.__proto__ = objB;
+    objC.sayhello();
+    console.dir(objC);
+    log(objC.__proto__);
+
   </script>
 </body>
 </html>
