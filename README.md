@@ -742,8 +742,28 @@ const a = yield 2;
   - [ES6의 제너레이터를 사용한 비동기 프로그래밍 : TOAST Meetup](https://meetup.toast.com/posts/73)
   - [제너레이터](https://ko.javascript.info/generators)
 
-## 프로토타입(prototype)
+## 프로토타입 체인(prototype chain)
 - 자바스크립트의 모든 객체는 `[[Prototype]]`이라고 하는 **내부 슬롯(internal slot)**을 지닌다.
+- 하위 객체는 상위 객체의 `prototype`을 상속받으며, 상속받은 데이터는 `__proto__`에 저장된다.
+  - 상속은 깊은복사로 이루어지며, 상속받은 이후에는 별개의 데이터이기 때문에 인스턴스의 `__proto__` 객체를 수정하더라도 상위객체의 `prototype`은 영향을 받지 않는다.
+```javascript
+const myCat = {
+  name: 'Lucy',
+  sayHello: function() { console.log('Hello! ' + this.name); }
+};
+
+const yourCat = {
+  name: 'Tom'
+};
+
+yourCat.__proto__ = myCat;
+
+const whoseCat = {};
+whoseCat.__proto__ = yourCat;
+
+whoseCat.sayHello(); // Hello! Tom
+```
+- 위와 같이 `__proto__`를 통해 하위 객체와 상위 객체가 이어져 있으며, 이를 **프로토타입 체인** 이라고 한다. 그리고, 자신과 가까운 객체의 프로퍼티부터 위로 거슬러 올라가며 검색하게 된다.
 
 - **참고:**
   - [poiemaweb - 프로토타입](https://poiemaweb.com/js-prototype)

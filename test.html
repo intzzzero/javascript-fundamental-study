@@ -9,20 +9,19 @@
   <script>
 
 
+  const myCat = {
+    name: 'Lucy',
+    sayHello: function() { console.log('Hello! ' + this.name); }
+  };
 
+  const yourCat = {};
+  yourCat.__proto__ = myCat;
 
+  const whoseCat = {};
+  whoseCat.__proto__ = yourCat;
 
-    function Circle(center, radius) {
-      this.center = center;
-      this.radius = radius;
-    }
+  whoseCat.sayHello(); // Hello! Lucy
 
-    Circle.prototype.area = function() {
-      return Math.PI * this.radius * this.radius;
-    };
-
-    const c = new Circle({x:0, y:0}, 3.0);
-    console.log(c.area());
 
 
 
