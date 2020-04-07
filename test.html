@@ -8,22 +8,35 @@
 <body>
   <script>
 
+    function Circle(center, radius) {
+      this.center = center;
+      this.radius = radius;
+    }
+    Circle.prototype.area = function() {
+      return Math.PI * this.radius * this.radius;
+    };
 
-  const myCat = {
-    name: 'Lucy',
-    sayHello: function() { console.log('Hello! ' + this.name); }
-  };
-
-  const yourCat = {};
-  yourCat.__proto__ = myCat;
-
-  const whoseCat = {};
-  whoseCat.__proto__ = yourCat;
-
-  whoseCat.sayHello(); // Hello! Lucy
+    const c = new Circle({x:0, y:0}, 2.0);
+    console.log(c.area());
 
 
 
+
+    function Animal(name, species) {
+      this.name = name;
+      this.species = species;
+    }
+
+    Animal.prototype.whatAnimal = function() {
+      return `${this.name} is a ${this.species}`;
+    };
+
+    const cat = new Animal('Lucy', 'Cat');
+    console.log(cat.whatAnimal()); // Lucy is a Cat
+    
+
+    function F() {};
+    console.log(F.prototype.__proto__);
 
 
 
