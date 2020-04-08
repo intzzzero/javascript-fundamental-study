@@ -797,6 +797,27 @@ console.log(person.name); // Jane
 ```
 
 - 접근자 프로퍼티가 없는 객체에 접근자 프로퍼티를 추가하거나 정의할 때에는 `Object.defineProperty`나 `Object.defineProperties` 메서드를 사용한다.
+```javascript
+let user = {};
+
+Object.defineProperty(user, 'name', {
+  get() {
+    return this._name;
+  },
+  set(value) {
+    if (value.length < 4) {
+      console.log('Too short! more than 4 characters');
+      return;
+    }
+    this._name = value;
+  }
+});
+
+user.name = 'Peter';
+console.log(user.name); // Peter
+
+user.name = 'Li'; // Too short! more than 4 characters
+```
 
 - **참고:**
   - [프로퍼티 getter와 setter](https://ko.javascript.info/property-accessors#ref-614)

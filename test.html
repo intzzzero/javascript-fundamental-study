@@ -7,20 +7,27 @@
 </head>
 <body>
   <script>
-    const person = {
-      _name: 'Tom',
-      get name() {
+    let user = {};
+
+    Object.defineProperty(user, 'name', {
+      get() {
         return this._name;
       },
-      set name(value) {
-        const str = value.charAt(0).toUpperCase() + value.substring(1);
-        this._name = str;
-      }
-    };
 
-    console.log(person.name);
-    person.name = 'jane';
-    console.log(person.name);
+      set(value) {
+        if (value.length < 4) {
+          console.log('Too short! more than 4 characters');
+          return;
+        }
+        this._name = value;
+      }
+    });
+
+    user.name = 'Peter';
+    console.log(user.name);
+
+    user.name = 'Li';
+
 
   </script>
 
