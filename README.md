@@ -762,14 +762,41 @@ whoseCat.__proto__ = yourCat;
 
 whoseCat.sayHello(); // Hello! Tom
 ```
-- 위와 같이 `__proto__`를 통해 하위 객체와 상위 객체가 이어져 있으며, 이를 **프로토타입 체인** 이라고 한다. 그리고, 자신과 가까운 객체의 프로퍼티부터 위로 거슬러 올라가며 검색하게 된다.
+- 위와 같이 `__proto__`를 통해 하위 객체와 상위 객체가 이어져 있으며, 이를 **프로토타입 체인** 이라고 한다. 그리고, 자신과 가까운 프로퍼티부터 위로 거슬러 올라가며 검색하게 된다.
 
 ### Object.getPrototypeOF()
 - ES 명세에서나 브라우저에서나 `__proto__`를 통한 접근은 권장하지 않는다.
 - 따라서 프로토타입 메서드에 접근해야 할 때에는 `Object.getPrototypeOf()` 또는 `Object.creat()`를 활용하도록 하자.
 
-
 - **참고:**
   - [poiemaweb - 프로토타입](https://poiemaweb.com/js-prototype)
   - [poiemaweb - 클래스](https://poiemaweb.com/es6-class)
   - [코어자바스크립트 - 프로토타입 상속](https://ko.javascript.info/prototype-inheritance)
+
+## 접근자 프로퍼티
+- 일반적으로 값 을 가져올 때 쓰는 접근자 프로퍼티를 `getter`, 값을 수정할 때 쓰는 접근자 프로퍼티를 `setter`라고 부른다.
+- **접근자 프로퍼티를 사용하는 이유**
+  - 객체 밖에서 객체의 프로퍼티를 직접적으로 읽거나 쓰는 행위는 데이터의 유지 보수성을 해친다.
+  - 따라서, 객체가 가진 프로퍼티 값을 읽고 쓸 수 있는 특정 프로퍼티가 `getter`와 `setter`이다.
+
+```javascript
+const person = {
+  _name: 'Tom',
+  get name() {
+    return this._name;
+  },
+  set name(value) {
+    const str = value.charAt(0).toUpperCase() + value.substring(1);
+    this._name = str;
+  }
+};
+
+console.log(person.name); // Tom
+person.name = 'jane';
+console.log(person.name); // Jane
+```
+
+- 접근자 프로퍼티가 없는 객체에 접근자 프로퍼티를 추가하거나 정의할 때에는 `Object.defineProperty`나 `Object.defineProperties` 메서드를 사용한다.
+
+- **참고:**
+  - [프로퍼티 getter와 setter](https://ko.javascript.info/property-accessors#ref-614)

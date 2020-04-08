@@ -7,41 +7,20 @@
 </head>
 <body>
   <script>
-
-    function Circle(center, radius) {
-      this.center = center;
-      this.radius = radius;
-    }
-    Circle.prototype.area = function() {
-      return Math.PI * this.radius * this.radius;
+    const person = {
+      _name: 'Tom',
+      get name() {
+        return this._name;
+      },
+      set name(value) {
+        const str = value.charAt(0).toUpperCase() + value.substring(1);
+        this._name = str;
+      }
     };
 
-    const c = new Circle({x:0, y:0}, 2.0);
-    console.log(c.area());
-
-
-
-
-    function Animal(name, species) {
-      this.name = name;
-      this.species = species;
-    }
-
-    Animal.prototype.whatAnimal = function() {
-      return `${this.name} is a ${this.species}`;
-    };
-
-    const cat = new Animal('Lucy', 'Cat');
-    console.log(cat.whatAnimal()); // Lucy is a Cat
-    
-
-    function F() {};
-    console.log(F.prototype.__proto__);
-
-
-
-
-
+    console.log(person.name);
+    person.name = 'jane';
+    console.log(person.name);
 
   </script>
 
