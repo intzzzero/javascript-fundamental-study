@@ -8,7 +8,22 @@
 <body>
   <script>
 
+    const person = (function() {
+      let _name = 'Tom';
+      return {
+        get name() {
+          return _name;
+        },
+        set name(value) {
+          const str = value.charAt(0).toUpperCase() + value.substring(1);
+          _name = str;
+        }
+      };
+    })();
 
+    console.log(person.name);
+    person.name = 'jane';
+    console.log(person.name);
   </script>
 </body>
 </html>

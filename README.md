@@ -778,7 +778,6 @@ whoseCat.sayHello(); // Hello! Tom
 - **접근자 프로퍼티를 사용하는 이유**
   - 객체 밖에서 객체의 프로퍼티를 직접적으로 읽거나 쓰는 행위는 데이터의 유지 보수성을 해친다.
   - 따라서, 객체가 가진 프로퍼티 값을 읽고 쓸 수 있는 특정 프로퍼티가 `getter`와 `setter`이다.
-
 ```javascript
 const person = {
   _name: 'Tom',
@@ -818,6 +817,28 @@ console.log(user.name); // Peter
 
 user.name = 'Li'; // Too short! more than 4 characters
 ```
+
+- 아래와 같이 **즉시 실행 함수(IIFE)** 로 감싸 클로저를 생성하면 데이터를 객체 외부에서 읽고 쓸 수 없도록 숨기는 동시에 접근자 프로퍼티로만 읽고 쓸 수 있게 할 수 있다.
+```javascript
+const person = (function() {
+  let _name = 'Tom';
+  return {
+    get name() {
+      return _name;
+    },
+    set name(value) {
+      const str = value.charAt(0).toUpperCase() + value.substring(1);
+      _name = str;
+    }
+  };
+})();
+
+console.log(person.name); // Tom
+
+person.name = 'jane';
+console.log(person.name); // Jane
+```
+
 
 - **참고:**
   - [프로퍼티 getter와 setter](https://ko.javascript.info/property-accessors#ref-614)
