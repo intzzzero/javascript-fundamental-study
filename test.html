@@ -7,29 +7,8 @@
 </head>
 <body>
   <script>
-    let user = {};
-
-    Object.defineProperty(user, 'name', {
-      get() {
-        return this._name;
-      },
-
-      set(value) {
-        if (value.length < 4) {
-          console.log('Too short! more than 4 characters');
-          return;
-        }
-        this._name = value;
-      }
-    });
-
-    user.name = 'Peter';
-    console.log(user.name);
-
-    user.name = 'Li';
 
 
   </script>
-
 </body>
 </html>
