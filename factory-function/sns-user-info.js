@@ -1,8 +1,8 @@
 const userInfo = (id, name, image) => {
   return {
-    id: id,
-    name: name,
-    image: image,
+    id,
+    name,
+    image,
     friends: [],
     posts: [],
     addFriend(friend) {
@@ -16,5 +16,6 @@ const userInfo = (id, name, image) => {
 
 const newUser = userInfo('codeAmeba', 'Sooyoung Jeong', 'codeameba.jpg');
 console.log(newUser.id);
+
 newUser.addFriend('codeMonkey');
 console.log(newUser.friends);
