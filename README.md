@@ -842,3 +842,95 @@ console.log(person.name); // Jane
 
 - **참고:**
   - [프로퍼티 getter와 setter](https://ko.javascript.info/property-accessors#ref-614)
+
+
+## 프로퍼티의 내부 속성
+프로퍼티는 다음과 같은 세 가지 내부 속성을 논리값으로 갖는다.
+
+- writable(쓰기 가능 여부)
+- enumerable(열거 가능 여부)
+- configurable(재정의 가능 여부)
+
+**별도의 설정 없이 프로퍼티를 추가하면 위의 세 가지 내부 속성이 모두 `true`인 상태로 생성된다.**
+
+### Object.getOwnPropertyDescriptor
+
+또한, 값을 지닌 **데이터 프로퍼티** 와 `get`과 `set`을 지닌 **접근자 프로퍼티** 는 `Object.getOwnPropertyDescriptor`를 통해 확인했을 때 아래와 같은 차이가 있다.
+
+```javascript
+const robot = {
+  _name: 'coderoid',
+  serialNumber: 1543,
+  get name() {
+    console.log(this._name);
+  },
+  set name(value) {
+    this._name = value;
+  }
+};
+
+// 데이터 프로퍼티의 프로퍼티 디스크립터
+console.log(Object.getOwnPropertyDescriptor(robot, 'serialNumber'));
+// {value: 1543, writable: true, enumerable: true, configurable: true}
+
+// 접근자 프로퍼티의 프로퍼티 디스크립터
+console.log(Object.getOwnPropertyDescriptor(robot, 'name'));
+// {enumerable: true, configurable: true, get: ƒ, set: ƒ}
+```
+
+### Object.defineProperty
+
+이와 같은 **세 가지 속성은 임의로 설정이 가능** 한데, `Object.defineProperty`를 사용하면 된다.
+
+```javascript
+const spaceShip = {};
+
+Object.defineProperty(spaceShip, 'name', {
+  value: 'codeship',
+  writable: true,
+  enumerable: false,
+  configurable: false
+});
+
+console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
+// {value: "codeship", writable: true, enumerable: false, configurable: false}
+```
+
+`Object.defineProperty`를 사용할 때 생략된 속성은 `false` 혹은 `undefined`로 설정된다.
+
+```javascript
+const spaceShip = {};
+
+Object.defineProperty(spaceShip, 'name', {
+  value: 'codeship',
+  writable: true,
+  configurable: true
+});
+
+console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
+// {value: "codeship", writable: true, enumerable: false, configurable: true}
+```
+
+그리고, `configurable` 속성이 `true`일 때에만 생략된 속성을 추가하거나 변경할 수 있다. `configurable`이 생략된 경우에는 자동으로 `false`가 설정되므로 생략된 속성의 추가 및 변경이 불가하다.
+`configurable`이 `false`인데 속성을 추가 및 변경하려고 할 경우 `Uncaught TypeError: Cannot redefine property`가 뜬다.
+
+```javascript
+const spaceShip = {};
+
+Object.defineProperty(spaceShip, 'name', {
+  value: 'codeship',
+  writable: true,
+  enumerable: false,
+  configurable: true
+});
+
+console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
+// {value: "codeship", writable: true, enumerable: false, configurable: true}
+
+Object.defineProperty(spaceShip, 'name', {
+  enumerable: true
+});
+
+console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
+// {value: "codeship", writable: true, enumerable: true, configurable: true}
+```

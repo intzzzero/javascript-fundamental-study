@@ -7,11 +7,19 @@ console.log(users);
 console.log(firstUser);
 
 // 객체
-const member = {
+let member = {
   name: 'codeAmeba',
   position: 'Front-end',
   skills: ['HTML', 'CSS', 'JavaScript'],
 }
 
-const { name, position, skills } = member;
-console.log(name, position, skills);
+// let { name, age: howOld = 32, location: whereAreYou = 'Seoul' } = member;
+// console.log(howOld);
+
+let option = {
+  title: 'menu',
+
+};
+
+let {width: w = 100, height: h = 200, title} = option;
+console.log(title, w, h);
