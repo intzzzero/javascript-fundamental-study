@@ -839,9 +839,9 @@ person.name = 'jane';
 console.log(person.name); // Jane
 ```
 
-
 - **참고:**
   - [프로퍼티 getter와 setter](https://ko.javascript.info/property-accessors#ref-614)
+
 
 ## 프로퍼티의 내부 속성
 
@@ -913,6 +913,8 @@ console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
 
 그리고, `configurable` 속성이 `true`일 때에만 생략된 속성을 추가하거나 변경할 수 있다. `configurable`이 생략된 경우에는 자동으로 `false`가 설정되므로 생략된 속성의 추가 및 변경이 불가하다.
 `configurable`이 `false`인데 속성을 추가 및 변경하려고 할 경우 `Uncaught TypeError: Cannot redefine property`가 뜬다.
+
+단, `configurable`이 `false`더라도, **단 한 번 `writable`의 값을 `true`에서 `false`로 수정 가능하며, `false`에서 `true`로 수정은 불가하다.**
 
 ```javascript
 const spaceShip = {};

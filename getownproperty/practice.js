@@ -1,14 +1,18 @@
-const person = {
-  name: 'Tom',
-  age: 17,
-  sayHello() {
-    console.log('Hello! ' + this.name);
-  }
-};
+const spaceShip = {};
 
+Object.defineProperty(spaceShip, 'name', {
+  value: 'codeship',
+  writable: false,
+  enumerable: false,
+  configurable: false
+});
 
-Object.defineProperty(person, 'sayHello', {enumerable: false});
-for (let p in person) console.log(p);
+console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
+// {value: "codeship", writable: true, enumerable: false, configurable: true}
 
+Object.defineProperty(spaceShip, 'name', {
+  writable: true
+});
 
-// console.log(Object.getOwnPropertyDescriptor(person, 'sayHello'));
+console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
+
