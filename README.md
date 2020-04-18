@@ -843,8 +843,8 @@ console.log(person.name); // Jane
 - **참고:**
   - [프로퍼티 getter와 setter](https://ko.javascript.info/property-accessors#ref-614)
 
-
 ## 프로퍼티의 내부 속성
+
 프로퍼티는 다음과 같은 세 가지 내부 속성을 논리값으로 갖는다.
 
 - writable(쓰기 가능 여부)
@@ -934,3 +934,7 @@ Object.defineProperty(spaceShip, 'name', {
 console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
 // {value: "codeship", writable: true, enumerable: true, configurable: true}
 ```
+
+- **참고:**
+  - [Object.getOwnPropertyDescriptor() - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor)
+  - [Object.defineProperty() - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
