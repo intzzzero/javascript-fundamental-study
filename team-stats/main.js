@@ -84,7 +84,6 @@ const team = {
   }
 };
 
-
 // test
 team.addPlayer('Clid', 'Junggle', 22);
 console.log(team.players);
