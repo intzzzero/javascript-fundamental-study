@@ -842,7 +842,6 @@ console.log(person.name); // Jane
 - **참고:**
   - [프로퍼티 getter와 setter](https://ko.javascript.info/property-accessors#ref-614)
 
-
 ## 프로퍼티의 내부 속성
 
 프로퍼티는 다음과 같은 세 가지 내부 속성을 논리값으로 갖는다.
@@ -940,3 +939,4 @@ console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
 - **참고:**
   - [Object.getOwnPropertyDescriptor() - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor)
   - [Object.defineProperty() - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+  - [프로퍼티 플래그와 설명자](https://ko.javascript.info/property-descriptors)

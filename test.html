@@ -8,16 +8,28 @@
 <body>
 
   <script>
-    let arr = [1, 2, 3, 4, 5];
-    
-    const addArr = num => {
-      arr.push(num);
-    };
 
-    addArr(7);
-    
-    let avg = arr.reduce((sum, current) => sum + current, 0) / arr.length;
-    console.log(avg);
+
+
+const spaceShip = {
+  _name: 'i-Space',
+  author: 'apple',
+  get name() {
+    return this._name;
+  },
+  set name(value) {
+    this._name = value;
+  }
+};
+
+Object.freeze(spaceShip);
+
+console.log(spaceShip.name); // i-Space
+console.log(spaceShip.author); // apple
+
+spaceShip.name('galaxy 17');
+console.log(spaceShip.name);
+
 
 
 
