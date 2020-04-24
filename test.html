@@ -10,25 +10,32 @@
   <script>
 
 
-
-const spaceShip = {
-  _name: 'i-Space',
-  author: 'apple',
-  get name() {
-    return this._name;
+let sayHiMixin = {
+  sayHi() {
+    console.log(`Hello ${this.name}`);
   },
-  set name(value) {
-    this._name = value;
+  sayBye() {
+    console.log(`Bye ${this.name}`);
   }
 };
 
-Object.freeze(spaceShip);
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+}
 
-console.log(spaceShip.name); // i-Space
-console.log(spaceShip.author); // apple
+Object.assign(User.prototype, sayHiMixin);
+new User('Dude').sayHi();
 
-spaceShip.name('galaxy 17');
-console.log(spaceShip.name);
+class codeAmeba extends User {
+  constructor(name) {
+    super(name);
+  }
+}
+
+new codeAmeba('Sooyoung').sayBye(); // Bye Sooyoung
+
 
 
 

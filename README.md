@@ -940,3 +940,59 @@ console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
   - [Object.getOwnPropertyDescriptor() - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor)
   - [Object.defineProperty() - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
   - [프로퍼티 플래그와 설명자](https://ko.javascript.info/property-descriptors)
+
+## 믹스인(mixin)
+
+**믹스인** 은 특정 객체에 다른 객체가 갖고 있는 프로퍼티를 붙여 넣어 '뒤섞는' 기법을 말한다. 상속을 사용하지 않는 대신 특정 객체의 프로퍼티를 동적으로 다른 객체에 추가한다. 이때, 프로퍼티를 추가하는 방식은 깊은 복사가 아닌 얕은 복사에 해당한다.
+
+```javascript
+function mixin(target, source) {
+  for (let property in source) {
+    if (source.hasOwnProperty(property)) {
+      target[property] = source[property];
+    }
+  }
+  return target;
+}
+
+const obj1 = {a: 1, b: 2};
+const obj2 = {b: 3, c: 4};
+const obj = mixin(obj1, obj2);
+console.log(obj); // {a: 1, b: 3, c: 4}
+```
+
+특히, `Object.assign`과 함께 사용하여 메서드를 복사했을 때 믹스인의 효과는 극대화된다.
+
+```javascript
+let sayHiMixin = {
+  sayHi() {
+    console.log(`Hello ${this.name}`);
+  },
+  sayBye() {
+    console.log(`Bye ${this.name}`);
+  }
+};
+
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Object.assign(User.prototype, sayHiMixin); // 메서드 복사
+
+new User('Dude').sayHi(); // Hello Dude
+
+class codeAmeba extends User { // subclass
+  constructor(name) {
+    super(name);
+  }
+}
+
+new codeAmeba('Sooyoung').sayBye(); // Bye Sooyoung
+```
+
+위와 같이 클래스(프로토타입) 상속과는 별개로 메서드 상속을 사용할 수 있게 해주는 것이 믹스인이다.
+
+**참고:**
+  - [믹스인](https://ko.javascript.info/mixins)
