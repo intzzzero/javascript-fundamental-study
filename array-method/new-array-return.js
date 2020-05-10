@@ -4,7 +4,7 @@ const fruits = ['apple', 'banana', 'melon', 'peach', 'blueberry'];
 
 // join : 모든 요소를 문자열로 변환 후 인수로 받은 문자와 연결하여 반환
 console.log(fruits.join('-'));
-console.log(fruits);
+// console.log(fruits);
 
 // concat : 인수로 받은 값을 배열에 추가하여 새로운 배열 생성
 console.log(fruits.concat('cherry', 'grape'));
