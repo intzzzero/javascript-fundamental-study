@@ -996,3 +996,358 @@ new codeAmeba('Sooyoung').sayBye(); // Bye Sooyoung
 
 **참고:**
   - [믹스인](https://ko.javascript.info/mixins)
+
+## 수정 메서드
+
+배열 메서드는 크게 세 종류로 나눈다.
+
+- **수정 메서드** : 원본 배열을 수정함
+- **접근자 메서드** : 배열에 접근하여 새로운 배열을 반환
+- **반복 메서드** : 배열의 요소들을 순회하며 작업을 수행
+
+이번 시간에는 주요 수정 메서드들을 살펴본다.
+
+### push
+
+`push()`는 배열 마지막에 새로운 요소를 추가한다.
+
+```javascript
+let fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
+
+fruits.push(‘pineapple’);
+console.log(fruits);
+// ["apple", "banana", "melon", "peach", "blueberry", "pineapple"]
+```
+
+### pop
+
+`pop()`은 배열 마지막 요소를 제거한다.
+
+```javascript
+let fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
+
+fruits.pop();
+console.log(fruits);
+// ["apple", "banana", "melon", "peach"]
+```
+
+### shift
+
+`shift()`는 배열 맨 앞의 요소를 제거한 후 모든 요소를 왼쪽으로 이동 시킨다.
+
+```javascript
+let fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
+
+fruits.shift();
+console.log(fruits);
+// [‘banana’, ‘melon’, ‘peach’, ‘blueberry’]
+```
+
+### unshift
+
+`unshift()`는 배열 맨 앞에 새로운 요소를 추가하며 기존의 요소들을 오른쪽으로 이동 시킨다.
+
+```javascript
+let fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
+
+fruits.unshift(‘pineapple’);
+console.log(fruits);
+// [‘pineapple’, ‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’]
+```
+
+### splice
+
+`splice`는 전달하는 인자 개수에 따라 특정 위치에 요소를 추가, 삭제, 교체할 수 있다.
+**`splice(시작 인덱스, 시작 인덱스부터 요소의 개수, 추가할 요소)`**
+
+```javascript
+let fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
+
+// 인덱스 1부터 2개의 요소를 제거하고, ‘lemon’과 ‘grape’를 추가
+fruits.splice(1, 2, ‘lemon’, ‘grape’);
+console.log(fruits);
+// ["apple", "lemon", "grape", "peach", "blueberry"]
+
+// 첫 번째 인수만 넘기면 해당 인덱스 이후의 요소 모두 제거
+fruits.splice(2);
+console.log(fruits);
+// ["apple", "lemon"]
+
+// 두 번째 인수에 0을 넘기면 제거 없이 새로운 요소만 추가
+fruits.splice(1, 0, ‘cherry’);
+console.log(fruits);
+// [“apple", "cherry", "lemon"]
+```
+
+### sort
+
+`sort()`는 배열 요소를 정렬할 때 사용한다. 비교함수를 넣어야 인접한 두 개 의 요소를 비교하여 정렬을 하며, 정렬 방식은 다음과 같다.
+
+- f(a, b) < 0 이면 a를 b보다 작은 인덱스로 정렬
+- f(a, b) == 0 이면 a와 b의 순서 그대로 둠
+- f(a, b) > 0 이면 b를 a보다 작은 인덱스로 정렬
+
+```javascript
+let numbers = [4, 6, 8, 1, 15, 3, 36, 2, 51, 7, 19, 24];
+
+numbers.sort(function(a, b) { return a - b; });
+console.log(numbers); 
+// [1, 2, 3, 4, 6, 7, 8, 15, 19, 24, 36, 51]
+```
+
+비교함수를 지정하지 않으면 요소를 문자열로 변환하여 사전순(abc)으로 정렬한다.
+
+```javascript
+let fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
+
+fruits.sort();
+console.log(fruits); 
+// ["apple", "banana", "blueberry", "melon", "peach"]
+```
+
+**참고:**
+  - [배열과 메서드](https://ko.javascript.info/array-methods)
+
+## 접근자 메서드
+
+배열 메서드는 크게 세 종류로 나눈다.
+
+- **수정 메서드** : 원본 배열을 수정함
+- **접근자 메서드** : 배열에 접근하여 새로운 배열을 반환
+- **반복 메서드** : 배열의 요소들을 순회하며 작업을 수행
+
+이번 시간에는 주요 **접근자 메서드** 들을 살펴본다.
+
+### join
+
+`join()`은 모든 요소를 문자열로 변환 후 인수로 받은 문자와 연결하여 반환한다.
+
+```javascript
+const fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
+
+console.log(fruits.join(‘-‘));
+// apple-banana-melon-peach-blueberry
+```
+
+### concat
+
+`concat()`은 인수로 받은 값을 배열에 추가하여 새로운 배열을 생성한다.
+
+```javascript
+const fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
+
+console.log(fruits.concat(‘cherry’, ‘grape’));
+// ["apple", "banana", "melon", "peach", "blueberry", "cherry", "grape"]
+```
+
+인수를 배열로 전달할 경우에는 자동으로 배열을 해체한 후 합친다.
+
+```javascript
+console.log(fruits.concat([‘cherry’, ‘grape’]));
+// ["apple", "banana", "melon", "peach", "blueberry", "cherry", "grape"]
+```
+
+그러나, 가장 바깥의 배열만 자동으로 해체하기 때문에 중복된 배열은 배열 그대로 추가된다.
+
+```javascript
+console.log(fruits.concat([‘lemon’, [‘strawberry’, ‘watermelon’]]));
+// ["apple", "banana", "melon", "peach", "blueberry", "lemon", [“strawberry”, “watermelon”]]
+```
+
+### slice
+
+`slice()`는 선택된 만큼의 요소를 새로운 배열로 반환한다. 두 개의 인수를 받으며, 첫 번째 인수는 **시작 인덱스** , 두 번째 인수는 **끝 인덱스** 다.
+
+`slice(시작, 끝)` : 시작 인덱스의 요소부터 끝 인덱스 바로 앞까지 새로운 배열로 반환한다. 두 번째 인수를 생략 가능하며 그럴 경우 시작 인덱스부터 모든 요소를 배열로 반환한다.
+
+```javascript
+const fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
+
+console.log(fruits.slice(1, 4));
+// ["banana", "melon", "peach"]
+
+console.log(fruits.slice(3));
+// ["peach", "blueberry"]
+```
+
+### indexOf, lastIndexOf
+
+`indexOf()`와 `lastIndexOf()`는 인수로 전달한 요소의 인덱스를 반환한다.
+`indexOf()`는 배열 왼쪽부터 검색하고, `lastIndexOf()`는 배열 오른쪽부터 검색하여 반환한다. 만약, 찾는 요소가 배열에 없을 때에는 `-1`을 반환한다.
+두 번째 인수는 검색을 시작할 인덱스이며 생략 가능하다.
+
+```javascript
+const numbers = [9, 2, 3, 5, 4, 8, 5, 6, 7];
+
+console.log(numbers.indexOf(5)); // 3
+console.log(numbers.lastIndexOf(5)); // 6
+```
+
+### toString, toLocaleString
+
+`toString()`과 `toLocaleString()`은 배열의 요소를 문자열로 반환 후 쉼표로 연결하여 반환한다. 둘의 차이는 `toLocaleString()`의 경우 해당 지역에 맞는 문자열로 번역하여 반환한다는 점이다.
+
+```javascript
+const date = new Date();
+
+console.log([‘Seoul’, ‘Republic of Korea’, date].toString());
+// Seoul,Republic of Korea,Sat May 09 2020 20:00:19
+
+console.log([‘Seoul’, ‘Republic of Korea’, date].toLocaleString());
+// Seoul,Republic of Korea,2020. 5. 9. 오후 8:00:19
+```
+
+`Object.prototype`에 동일한 이름을 가진 메서드가 존재하지만, `Array`에 새롭게 정의한 메서드이므로 다른 메서드로 볼 수 있다.
+
+```javascript
+Object.prototype.toString === Array.prototype.toString // false
+
+Object.prototype.toString === Array.prototype.__proto__.toString // true
+```
+
+**참고:**
+  - [배열과 메서드](https://ko.javascript.info/array-methods)
+
+## 반복 메서드
+
+배열 메서드는 크게 세 종류로 나눈다.
+
+- **수정 메서드** : 원본 배열을 수정함
+- **접근자 메서드** : 배열에 접근하여 새로운 배열을 반환
+- **반복 메서드** : 배열의 요소들을 순회하며 작업을 수행
+
+이번 시간에는 주요 **반복 메서드** 들을 살펴본다.
+
+### 반복 메서드의 공통 성질
+
+1. 반복 메서드의 인수로 전달한 함수는 배열의 모든 요소들에 호출되어 적용되며, 희소 배열의 경우 비어있는 요소는 건너뜀
+2. 반복 메서드 대부분은 첫 번째 인수로 함수를 받으며, 이 함수에는 **최대 세 개의 인수** 를 전달할 수 있다. 첫 번째 인수만 전달하는 경우가 많으며, 각각의 인수는 다음과 같다.
+  - 첫 번째 인수(value): 현재 처리하는 요소의 값
+  - 두 번째 인수(index): 현재 처리하는 요소의 인덱스
+  - 세 번째 인수(array): 메서드가 적용되는 배열의 참조
+3. `reduce`와 `reduceRight`를 제외한 반복 메서드에는 두 번째 인수를 지정할 수 있다. 두 번째 인수는 첫 번째 인수로 받은 함수 안의 `this`값이며 생략 가능하다.
+
+### forEach
+
+`forEach()`는 인수로 받은 함수를 요소 하나 하나마다 실행한다.
+
+```javascript
+const fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
+
+fruits.forEach((fruit) => console.log(`I Love ${fruit}`));
+// I Love apple
+// I Love banana
+// I Love melon
+// I Love peach
+// I Love blueberry
+
+fruits.forEach((fruit, index) => {
+  console.log(`${fruit} is ${index + 1}th fruit.`);
+});
+// apple is 1th fruit.
+// banana is 2th fruit.
+// melon is 3th fruit.
+// peach is 4th fruit.
+// blueberry is 5th fruit.
+```
+
+### map
+
+`map()`은 인수로 받은 함수를 요소별로 한 번씩 실행하며, 함수가 반환한 값으로 새로운 배열을 생성한다. `map()`의 인수로 넘기는 함수는 반드시 값을 반환해야 한다.
+
+```javascript
+const fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
+const myFruits = fruits.map((fruit) => fruit.toUpperCase());
+console.log(myFruits); 
+// [“APPLE”, “BANANA”, “MELON”, “PEACH”, “BLUEBERRY”]
+
+const numbers = [1, 4, 9, 16, 25];
+const sqrt = numbers.map(Math.sqrt);
+console.log(sqrt); // [1, 2, 3, 4, 5]
+
+const persons = [
+  {name: ‘Tom’, age: 17},
+  {name: ‘James’, age: 19},
+  {name: ‘Sam’, age: 15}
+];
+const names = persons.map(person => person.name);
+const ages = persons.map(person => person.age);
+console.log(`names: ${names} / ages: ${ages}`);
+// names: Tom,James,Sam / ages: 17,19,15
+
+console.log(persons.map(person => person.name).map(name => name.length));
+// [3, 5, 3]
+```
+
+### filter
+
+`filter()`는 조건에 충족하는 요소만 걸러 새로운 배열로 반환한다.
+
+```javascript
+const fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
+
+const includeM = fruits.filter((fruit) => fruit.includes(‘m’));
+console.log(includeM); // [“melon”]
+
+const longerThan5Length = fruits.filter(fruit => fruit.length > 5);
+console.log(longerThan5Length); // [“banana”, “blueberry”]
+```
+
+### reduce
+
+`reduce()`는 배열을 기반으로 하나의 값을 도출할 때 사용한다. reduce의 인수로 넘기는 함수의 첫 번째 인수는 **accumulator(누산기)** 라고 할 수 있으며, 함수의 결과가 누적되어 저장되고 마지막 함수까지 호출되면 이 값이 `reduce()`의 반환값이 된다.
+
+```javascript
+const myNums = [1, 5, 3, 7, 9, 2];
+const result = myNums.reduce((sum, current) => sum + current, 0);
+console.log(result); // 27
+```
+
+`reduce()`에 전달된 함수는 위와 같이 두 개의 인수를 받는 게 일반적이다.
+위 코드의 실행 절차에 따른 `sum`과 `current`의 상태 변화는 다음과 같다.
+
+1. `sum = 0` / `current = 1`
+2. `sum = 0 + 1` / `current = 5`
+3. `sum = 0 + 1 + 5` / `current = 3`
+4. `sum = 0 + 1 + 5 + 3` / `current = 7`
+5. `sum = 0 + 1 + 5 + 3 + 7` / `current = 9`
+6. `sum = 0 + 1 + 5 + 3 + 7 + 9` / `current = 2`
+7. `return sum = 0 + 1 + 5 + 3 + 7 + 9 + 2`
+
+끝의 `0`은 `reduce()`의 마지막 인수로 초깃값을 뜻하며 `sum`에 할당된다. 
+
+```javascript
+let arr = [1, 4, 6, 9];
+let newResult = arr.reduce((sum, current) => sum + current);
+console.log(newResult); // 20
+
+let emptyArr = [];
+let newResult = emptyArr.reduce((sum, current) => sum + current);
+console.log(newResult); // TypeError: Reduce of empty array with no initial value
+```
+
+초깃값을 생략할 경우 배열의 첫 번째 요소를 초깃값으로 사용한다. 다만, 배열이 비었을 경우 초깃값으로 사용할 요소가 없기 때문에 `error`가 발생한다.
+
+이러한 `reduce()`의 특성을 활용하면 꼭 요소들의 합 뿐만 아니라 다양한 방법으로 사용할 수 있다.
+
+```javascript
+let a = [3, 6, 7, 2];
+
+// 모든 배열 요소의 곱
+console.log(a.reduce((pre, val) => pre * val)); // 252
+
+// 배열 요소 중 가장 큰 값
+console.log(a.reduce((pre, val) => pre > val ? pre : val)); // 7
+
+let names = ['Tom', 'Jane', 'Sam'];
+
+// 문자열 연결
+console.log(names.reduce((pre, val) => pre + ' ' + val)); // Tom Jane Sam
+```
+
+### reduceRight
+
+`reduce()`와 유사한 메서드로 `reduceRight()`가 있다. 원리와 사용법은 동일하며 배열의 오른쪽 요소부터 작업을 수행한다는 점이 다르다.
+
+**참고:**
+  - [배열과 메서드](https://ko.javascript.info/array-methods)
