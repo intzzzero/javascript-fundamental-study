@@ -19,13 +19,11 @@ function Person(first, last, age, gender, interests) {
 		last: last
 	};
 	this.age = age;
-	this.gender = gender;
+	this.gender = gender === 'male' ? 'He' : 'She';
 	this.interests = interests;
 	this.bio = function () {
 		console.log(
-			`${this.name.first} ${this.name.last} is ${this.age} years old. ${
-				this.gender === 'male' ? 'He' : 'She'
-			} likes ${this.interests[0]} and ${this.interests[1]}.`
+			`${this.name.first} ${this.name.last} is ${this.age} years old. ${this.gender} likes ${this.interests[0]} and ${this.interests[1]}.`
 		);
 	};
 	this.greeting = function () {
@@ -42,9 +40,10 @@ class Animal {
 		this.species = species;
 		this.sound = sound;
 	}
-	greeting() {
+	greeting = function () {
 		console.log(`${this.name} the ${this.species} is greeting "${this.sound}"`);
-	}
+	};
 }
 
 const max = new Animal('Max', 'dog', 'WangWang!');
+const keith = new Animal('Keith', 'cat', 'MeowMeow~');
