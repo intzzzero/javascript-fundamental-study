@@ -10,15 +10,29 @@ class Person {
 		this.gender = gender === 'male' ? 'He' : 'She';
 		this.interests = interests;	
 	}
-
-	bio = function() {
-		console.log(
-			`${this.name.first} ${this.name.last} is ${this.age} years old. ${this.gender} likes ${this.interests[0]} and ${this.interests[1]}.`
-		);
-	};
-	greeting = function(myName) {
-		console.log(`Hello I'm ${this.name.first}. Nice to meet you ${myName}`);
-	};
 }
 const john = new Person('John', 'Miles', 32, 'male', ['coding', 'reading']);
 const jane = new Person('Jane', 'Carol', 29, 'female', ['painting', 'watching movie']);
+
+// const sam = new jane.constructor('Sam', 'Winchester', 25, 'male', ['singing', 'running']);
+// console.log(sam.name);
+// console.log(sam.bio());
+// console.log(sam.greeting('Jane'));
+
+
+
+// prototype 체인에 새로운 메서드를 추가하여 기존에 만들어진 인스턴스에도 모두 적용
+// 프로토타입에 프로퍼티를 정의하는 경우는 없고, 주로 메서드만 정의함.
+Person.prototype.farewell = function() {
+	console.log(`${this.name.first} has left the building. Bye for now!`);
+};
+
+Person.prototype.bio = function() {
+	console.log(
+		`${this.name.first} ${this.name.last} is ${this.age} years old. ${this.gender} likes ${this.interests[0]} and ${this.interests[1]}.`
+	);
+};
+
+Person.prototype.greeting = function(myName) {
+	console.log(`Hello I'm ${this.name.first}. Nice to meet you ${myName}.`);
+};
