@@ -7,7 +7,7 @@ class Person {
 			last: last
 		};
 		this.age = age;
-		this.gender = gender === 'male' ? 'He' : 'She';
+		this.gender = gender;
 		this.interests = interests;	
 	}
 }
@@ -26,7 +26,7 @@ Person.prototype.farewell = function() {
 
 Person.prototype.bio = function() {
 	console.log(
-		`${this.name.first} ${this.name.last} is ${this.age} years old. ${this.gender} likes ${this.interests[0]} and ${this.interests[1]}.`
+		`${this.name.first} ${this.name.last} is ${this.age} years old. ${this.gender === 'male' ? 'He' : 'She'} likes ${this.interests[0]} and ${this.interests[1]}.`
 	);
 };
 
@@ -37,7 +37,15 @@ Person.prototype.greeting = function(myName) {
 class Employee extends Person {
 	constructor(first, last, age, gender, interests, position) {
 		super(first, last, age, gender, interests);
-		this.position = position;
+		this._position = position;
+	}
+
+	// _(under bar)로 변수명을 구분하지 않으면 에러 발생함
+	get position() {
+		return this._position;
+	}
+	set position(newPosition) {
+		this._position = newPosition;
 	}
 }
 
@@ -47,4 +55,13 @@ Person.prototype.introduceEmployee = function() {
 
 const frank = new Employee('Frank', 'Colins', 28, 'male', ['sleeping', 'watching movie'], 'software engineer');
 jane.position = 'designer';
+
+/*
+상속을 구현할때 상속 레벨을 너무 깊게 하지 말고, 
+메소드와 속성들이 정확히 어디에 구현되어 있는지 항상 인지해야 합니다. 
+브라우저 내장 객체의 prototype 역시 일시적으로 수정이 가능하지만 
+정말로 필요한 경우를 제외하고는 건드리지 말아야 합니다. 
+너무 깊은 상속은 디버그 할 때 끝없는 혼돈과 고통만을 줄 겁니다.
+- MDN -
+*/
 
