@@ -5,52 +5,52 @@
 
 ## 목차
 
-[자바스크립트의 재탄생](##자바스크립트의-재탄생)
-[변수(variable)](##변수(variable))
-[변수 호이스팅(hoisting)](##변수-호이스팅(hoisting))
-[getMonth() 메서드에 +1을 해야 하는 이유](##getMonth-메서드에-+1을-해야-하는-이유)
-[함수(function)의 동작원리](##함수(function)의-동작원리)
-[자바스크립트의 함수는 일급객체](##자바스크립트의-함수는-일급객체)
-[함수 선언문의 호이스팅](##함수-선언문의-호이스팅)
-[값의 전달, 참조의 전달](##값의-전달,-참조의-전달)
-[스코프](##스코프)
-[메서드(method)](##메서드(method))
-[함수를 사용하는 이유](##함수를-사용하는-이유)
-[함수를 정의하는 방법](##함수를-정의하는-방법)
-[생성자 함수](##생성자-함수)
-[자바스크립트의 객체](##자바스크립트의-객체)
-[희소 배열(sparse array)](##희소-배열(sparse-array))
-[표현식(expression)](##표현식(expression))
-[자바스크립트의 문자열은 불변(immutable)](##자바스크립트의-문자열은-불변(immutable))
-[truthy와 falsy](##truthy와-falsy)
-[암묵적 타입 변환](##암묵적-타입-변환)
-[대화상자의 종류](##대화상자의-종류)
-[for 문 실행순서](##for-문-실행순서)
-[객체 지향 프로그래밍의 의미](##객체-지향-프로그래밍의-의미)
-[즉시 실행 함수(Immediately-invoked function)](##즉시-실행-함수(Immediately-invoked-function))
-[인수의 생략](##인수의-생략)
-[재귀함수](##재귀함수)
-[실행 컨텍스트(Execution Centext)](##실행-컨텍스트(Execution-Centext))
-[렉시컬 환경(Lexical Environment)](##렉시컬-환경(Lexical-Environment))
-[콜 스택(Call Stack)](##콜-스택(Call-Stack))
-[스코프 체인(Scope Chain)](##스코프-체인(Scope-Chain))
-[스코프(scope)와 실행 컨텍스트(execution context)의 차이](##스코프(scope)와-실행-컨텍스트(execution-context)의-차이)
-[함수의 실행 절차](##함수의-실행-절차)
-[가비지 컬렉션(garbage collection)](##가비지-컬렉션(garbage-collection))
-[클로저(closure)](##클로저(closure))
-[네임 스페이스(Name space) 오염을 줄이는 방법](##네임-스페이스(Name-space)-오염을-줄이는-방법)
-[apply, call, bind](##apply,-call,-bind)
-[화살표 함수(arrow function)](##화살표-함수(arrow-function))
-[이터레이터(iterator)](##이터레이터(iterator))
-[제너레이터(generator)](##제너레이터(generator))
-[프로토타입 체인(prototype chain)](##프로토타입-체인(prototype-chain))
-[접근자 프로퍼티](##접근자-프로퍼티)
-[프로퍼티의 내부 속성](##프로퍼티의-내부-속성)
-[믹스인(mixin)](##믹스인(mixin))
-[수정 메서드](##수정-메서드)
-[접근자 메서드](##접근자-메서드)
-[반복 메서드](##반복-메서드)
-[유사 배열 객체(Array-like object)](##유사-배열-객체(Array-like-object))
+- [자바스크립트의 재탄생](##자바스크립트의-재탄생)
+- [변수(variable)](##변수(variable))
+- [변수 호이스팅(hoisting)](##변수-호이스팅(hoisting))
+- [getMonth 메서드 사용 시 유의할 점](##getMonth-메서드-사용-시-유의할-점)
+- [함수(function)의 동작원리](##함수(function)의-동작원리)
+- [자바스크립트의 함수는 일급객체](##자바스크립트의-함수는-일급객체)
+- [함수 선언문의 호이스팅](##함수-선언문의-호이스팅)
+- [값의 전달, 참조의 전달](##값의-전달,-참조의-전달)
+- [스코프](##스코프)
+- [메서드(method)](##메서드(method))
+- [함수를 사용하는 이유](##함수를-사용하는-이유)
+- [함수를 정의하는 방법](##함수를-정의하는-방법)
+- [생성자 함수](##생성자-함수)
+- [자바스크립트의 객체](##자바스크립트의-객체)
+- [희소 배열(sparse array)](##희소-배열(sparse-array))
+- [표현식(expression)](##표현식(expression))
+- [자바스크립트의 문자열은 불변(immutable)](##자바스크립트의-문자열은-불변-(immutable))
+- [truthy와 falsy](##truthy와-falsy)
+- [암묵적 타입 변환](##암묵적-타입-변환)
+- [대화상자의 종류](##대화상자의-종류)
+- [for 문 실행순서](##for-문-실행순서)
+- [객체 지향 프로그래밍의 의미](##객체-지향-프로그래밍의-의미)
+- [즉시 실행 함수(Immediately-invoked function)](##즉시-실행-함수- (Immediately-invoked-function))
+- [인수의 생략](##인수의-생략)
+- [재귀함수](##재귀함수)
+- [실행 컨텍스트(Execution Centext)](##실행-컨텍스트- (Execution-Centext))
+- [렉시컬 환경(Lexical Environment)](##렉시컬-환경- (Lexical-Environment))
+- [콜 스택(Call Stack)](##콜-스택(Call-Stack))
+- [스코프 체인(Scope Chain)](##스코프-체인(Scope-Chain))
+- [스코프(scope)와 실행 컨텍스트(execution context)의 차이](##스코프-(scope)와-실행-컨텍스트(execution-context)의-차이)
+- [함수의 실행 절차](##함수의-실행-절차)
+- [가비지 컬렉션(garbage collection)](##가비지-컬렉션- (garbage-collection))
+- [클로저(closure)](##클로저(closure))
+- [네임 스페이스 오염을 줄이는 방법](##네임-스페이스-오염을-줄이는-방법)
+- [apply, call, bind](##apply,-call,-bind)
+- [화살표 함수(arrow function)](##화살표-함수(arrow-function))
+- [이터레이터(iterator)](##이터레이터(iterator))
+- [제너레이터(generator)](##제너레이터(generator))
+- [프로토타입 체인(prototype chain)](##프로토타입-체인- (prototype-chain))
+- [접근자 프로퍼티](##접근자-프로퍼티)
+- [프로퍼티의 내부 속성](##프로퍼티의-내부-속성)
+- [믹스인(mixin)](##믹스인(mixin))
+- [수정 메서드](##수정-메서드)
+- [접근자 메서드](##접근자-메서드)
+- [반복 메서드](##반복-메서드)
+- [유사 배열 객체(Array-like object)](##유사-배열-객체- (Array-like-object))
 
 ***
 
@@ -77,7 +77,7 @@ console.log(a); // 3
 - 프로그램 중간에서 변수를 선언하더라도 첫머리에 선언된 것처럼 작동하는데, 이것을 **호이스팅** 이라고 한다.
 - 단, 호이스팅이 되는 것은 선언문 뿐이며, 자동으로 undefined로 초기화 된다.
 
-## getMonth 메서드에 +1을 해야 하는 이유
+## getMonth 메서드 사용 시 유의할 점
 
 - `new Date()` 메서드 사용 시 `getMonth()` 는 0~11이기 때문에 **+1**을 해줘야 한다.
 
@@ -108,6 +108,7 @@ console.log(now.getMonth()); //1
 
 - 변수와 마찬가지로 호이스팅이 됨
 - 아래와 같은 **함수선언문** 은 전체가 통째로 호이스팅 됨
+
 ```javascript
 console.log(square(5)); // 25
 
@@ -701,7 +702,7 @@ console.log(counter2()); // 2
   - [클로저 - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)
   - [Closure | PoiemaWeb](https://poiemaweb.com/js-closure)
 
-## 네임 스페이스(Name space) 오염을 줄이는 방법
+## 네임 스페이스 오염을 줄이는 방법
 
 전역 변수와 전역 함수 등을 남발하게 되면 라이브러리를 쓴다거나 협업을 할 때 식별자가 충돌할 수가 있다. 따라서 전역 변수의 사용이 불가피할 경우에는 소스 코드 상단에 모아서 한눈에 파악할 수 있게 하는 것이 좋다.
 
