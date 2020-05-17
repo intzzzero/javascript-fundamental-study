@@ -9,14 +9,13 @@ console.log([1, ...[2, 3, 4], 5]) // [1, 2, 3, 4, 5]
 // 인수를 전달할 때 풀어서 전달
 const favorFruits = (fruit) => {
   let myFavor = [];
-  // fruit.forEach((val) =>  myFavor.push(val));
-  myFavor.push(fruit);
+  myFavor.push(...fruit);
   return console.log(myFavor);
 }
 
 const fruits = ['apple', 'grape', 'melon', 'cherry'];
-favorFruits(fruits); // [["apple", "grape", "melon", "cherry"]]
-favorFruits(...fruits); // ["apple"]
+favorFruits(fruits); // ["apple", "grape", "melon", "cherry"]
+favorFruits(...fruits); // ["a", "p", "p", "l", "e"]
 
 
 // ...을 사용하여 concat 대신 push로 연결 가능
