@@ -63,3 +63,5 @@ function noReturn(): void {
 function neverStop(): never {
   while (true) {}
 }
+
+// https://poiemaweb.com/typescript-typing
