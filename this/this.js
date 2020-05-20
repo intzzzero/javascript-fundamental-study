@@ -107,13 +107,14 @@ const obj5 = {
   method2: function() {
     setTimeout(function() {
       console.log(this.prop);
-    }, 1000);
+    }.bind(obj5), 1000); // binding
   }
 }
 
 // 화살표 함수로 작성하면 외부 환경에 바인딩
 obj5.method(); // This is callback
-obj5.method2(); // This is window
+obj5.method2(); // This is callback
+
 
 // call, apply, bind 메서드를 통해 this를 명시적으로 바인딩 할 수 있다.
 // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/call
@@ -133,6 +134,25 @@ c(1, 2, 3); // {c: "Hello"} 1 2 3
 
 var d = a.bind(b, 1, 2);
 d(3); // {c: "Hello"} 1 2 3
+
+
+const myCallback = function() {
+  console.log(this);
+};
+
+const obj6 = {
+  prop: 'This is object',
+  method: function(cb) {
+    cb(this);
+  },
+  method2: function(cb) {
+    cb.call(this);
+  }
+};
+
+obj6.method(myCallback); // window
+obj6.method2(myCallback); // {prop: "This is object", method: ƒ, method2: ƒ}
+
 
 
 // 5. 생성자 함수에서의 this는 instance
