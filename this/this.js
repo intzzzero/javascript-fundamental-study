@@ -16,36 +16,36 @@ console.log(this === window); // true
 
 // 2. 일반 함수 호출 : 함수 내부에서 호출하면 무조건 window
 function normalFunc1() {
-  console.log(this); // Window
+  console.log(this); 
 }
-normalFunc1();
+normalFunc1(); // Window
 
 function normalFunc2() {
   function innerFunc() {
-    console.log(this); // Window
+    console.log(this); 
   }
   innerFunc();
 }
-normalFunc2();
+normalFunc2(); // Window
 
 // 메소드 내부의 일반 함수에서도 window
 // 그러나 화살표 함수는 자동으로 외부 환경에 바인딩 되어 외부 함수가 나온다.
 const obj1 = {
   method: function() {
     function innerFunc() {
-      console.log(this); // Window
+      console.log(this); 
     }
     innerFunc();
   },
   secondMethod: function() {
     const arrowFunc = () => {
-      console.log(this); // {e: ƒ, g: ƒ}
+      console.log(this); 
     }
     arrowFunc();
   }
 }
-obj1.method();
-obj1.secondMethod();
+obj1.method(); // Window
+obj1.secondMethod(); // {e: ƒ, g: ƒ}
 
 // 3. 메소드 호출에서의 this는 . 앞에 있는 것. 즉, 호출한 객체
 const obj2 = {
@@ -54,7 +54,7 @@ const obj2 = {
     console.log(this.prop);
   }
 }
-obj2.method();
+obj2.method(); // Hello world
 
 
 // 그러나 메소드 내부함수의 경우는 또 얘기가 달라진다.
