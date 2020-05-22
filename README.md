@@ -1527,3 +1527,19 @@ console.log(Math.max(...nums)); // 88
 ### throw
 
 `throw`는 예외를 던져준다. 즉, 특정 상황에서 프로그래머가 지정한 에러 메시지를 출력한다는 말이다. `throw`가 나오면 자바스크립트 인터프리터를 프로그램을 중단하고 예외처리기 `catch`를 찾는다. 만약, `catch`가 없다면 그대로 프로그램을 종료시킨다.
+
+## try / catch / finally
+
+`try`, `catch`, `finally`문은 예외가 던져졌을 때 그것을 잡아서 처리하며 문법은 다음과 같다.
+
+```javascript
+try {
+  // 예외가 발생할 수 있는 실행 코드
+} catch (exception) {
+  // try 블록에서 예외가 발생하면 catch 블록이 실행됨
+  // exception에 던져진 예외 값이 들어오고, 이 값을 바탕으로 예외를 처리함
+} finally {
+  // try와 catch 블록이 실행된 이후 반드시 실행되는 코드 블록
+}
+```
+
