@@ -1543,3 +1543,5 @@ try {
 }
 ```
 
+**참고:**
+  - [‘try..catch’와 에러 핸들링](https://ko.javascript.info/try-catch)
