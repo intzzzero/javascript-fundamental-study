@@ -40,7 +40,7 @@ class Employee extends Person {
 		this._position = position;
 	}
 
-	// _(under bar)로 변수명을 구분하지 않으면 에러 발생함
+	// _(under bar)로 변수명을 구분하지 않으면 stack overflow
 	get position() {
 		return this._position;
 	}
