@@ -1650,3 +1650,29 @@ console.log(randomString.split(' '));
 
 **참고:**
   - [Methods of RegExp and String](https://javascript.info/regexp-methods)
+
+## 웹 페이지에서 자바스크립트가 하는 일
+
+### 정적 페이지와 동적 페이지
+
+HTML과 CSS만으로 구성된 웹 페이지를 **정적(static) 페이지** 라고 하며, JavaScript가 더해진 웹 페이지를 **동적(dynamic) 페이지** 라고 한다. 이때, **동적** 이라는 말의 의미는, 사용자의 입력에 따른 대응이나 일련의 작업들을 자동화 하는 등의 **사용자 경험적(UX)** 인 측면을 의미한다.
+
+### 기술적인 측면에서의 자바스크립트가 하는 일
+
+웹 브라우저에서 자바스크립트가 하는 일은 크게 네 가지로 분류할 수 있다.
+**첫째,** 웹 페이지의 Document 객체(HTML, CSS)를 제어한다.
+  - DOM(Document Object Model) API를 이용
+**둘째,** 웹 페이지의 Window 객체와 브라우저를 제어한다.
+  - Location, Navigator, History 등 웹 브라우저 내장 객체 이용
+**셋째,** 웹 페이지에서 발생하는 이벤트를 처리한다.
+  - addEventListener, setTimeout 등을 이용한 click, scroll 등의 이벤트 처리
+**넷째,** HTTP를 이용하여 통신을 제어한다.
+  - XMLHttpRequest 객체를 활용하며, promise, async/await 등의 비동기 처리.
+
+### 웹 앱의 발전
+
+웹 브라우저가 막 등장한 초기에는 단지 웹에서 문서를 표시하고, `<a></a>` anchor 태그를 통해 이 문서에서 저 문서로 연결을 하는 정도의 역할이 전부였다. 하지만, 현재에 이르러서는 고성능의 자바스크립트 엔진과 더불어 HTML과 CSS의 발전으로 인하여 브라우저는 웹 애플리케이션이 구동되는 하나의 운영체제(OS)로써의 역할을 하고 있다.
+
+**참고:**
+  - [Javascript Environment | PoiemaWeb](https://poiemaweb.com/js-browser)
+  - [NAVER D2](https://d2.naver.com/helloworld/59361)
