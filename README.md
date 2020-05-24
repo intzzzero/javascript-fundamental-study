@@ -1660,12 +1660,16 @@ HTML과 CSS만으로 구성된 웹 페이지를 **정적(static) 페이지** 라
 ### 기술적인 측면에서의 자바스크립트가 하는 일
 
 웹 브라우저에서 자바스크립트가 하는 일은 크게 네 가지로 분류할 수 있다.
+
 **첫째,** 웹 페이지의 Document 객체(HTML, CSS)를 제어한다.
   - DOM(Document Object Model) API를 이용
+
 **둘째,** 웹 페이지의 Window 객체와 브라우저를 제어한다.
   - Location, Navigator, History 등 웹 브라우저 내장 객체 이용
+
 **셋째,** 웹 페이지에서 발생하는 이벤트를 처리한다.
   - addEventListener, setTimeout 등을 이용한 click, scroll 등의 이벤트 처리
+
 **넷째,** HTTP를 이용하여 통신을 제어한다.
   - XMLHttpRequest 객체를 활용하며, promise, async/await 등의 비동기 처리.
 
