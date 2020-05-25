@@ -11,6 +11,13 @@
       align-items: center;
       height: 100vh;
     }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
     button {
       width: 80px;
       height: 80px;
@@ -21,6 +28,7 @@
   </style>
 </head>
 <body>
+  <h2>I am parent window</h2>
   <div class="wrapper">
     <button class="open">Open</button>
     <button class="close">Close</button>
@@ -34,9 +42,10 @@
     let myWindow;
 
     openBtn.addEventListener('click', () => {
-      myWindow = open('http://codeameba.github.io', 'my blog', 'width=400, height=650');
+      myWindow = open('sibling-window.html', 'new window', 'width=400, height=650');
       myWindow.moveBy(750, 100);
     });
+
 
     closeBtn.addEventListener('click', () => {
       if (myWindow) {
