@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New window open and close</title>
+  <style>
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    button {
+      width: 80px;
+      height: 80px;
+      margin: 5px;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <button class="open">Open</button>
+    <button class="close">Close</button>
+  </div>
+
+
+  <script>
+    const openBtn = document.querySelector('.open');
+    const closeBtn = document.querySelector('.close');
+
+    let myWindow;
+
+    openBtn.addEventListener('click', () => {
+      myWindow = open('http://codeameba.github.io', 'my blog', 'width=400, height=650');
+      myWindow.moveBy(750, 100);
+    });
+
+    closeBtn.addEventListener('click', () => {
+      if (myWindow) {
+        myWindow.close();
+      }
+    });
+  </script>
+</body>
+</html>
