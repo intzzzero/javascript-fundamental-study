@@ -6,5 +6,5 @@ localStorage.getItem('currentYear');
 localStorage.removeItem('name');
 localStorage.clear();
 
-localStorage.setItem('robot', JSON.stringify({name: 'coderoid', serialNumber: 1542, author: 'Sooyoung Jeong'}));
+localStorage.setItem('robot', JSON.stringify({ name: 'coderoid', serialNumber: 1542, author: 'Sooyoung Jeong' }));
 JSON.parse(localStorage.getItem('robot'));

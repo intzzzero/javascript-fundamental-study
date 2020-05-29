@@ -1,7 +1,7 @@
 const robot = {
-  name: 'coderoid',
-  serialNumber: 1543,
-  author: 'Sooyoung Jeong'
+	name: 'coderoid',
+	serialNumber: 1543,
+	author: 'Sooyoung Jeong'
 };
 
 const robotCopy = robot;
@@ -13,9 +13,9 @@ console.log(robot.name); // copyroid
 // 복사본을 수정하면 원본까지 함께 바뀌어버린다.
 
 const rocket = {
-  name: 'space x',
-  serialNumber: 6734,
-  author: 'Sooyoung Jeong'
+	name: 'space x',
+	serialNumber: 6734,
+	author: 'Sooyoung Jeong'
 };
 
 const rocketCopy = Object.assign(rocket);
