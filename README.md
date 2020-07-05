@@ -3,7 +3,7 @@
 - 자바스크립트를 공부하며 주요 개념들을 정리함.
 - 교재: 모던 자바스크립트 입문(이소 히로시 지음)
 
-***
+![JavaScript](https://blog.martinwork.co.kr/images/javascript/javascript.png)
 
 ## 자바스크립트의 재탄생
 
