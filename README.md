@@ -1,7 +1,12 @@
 # JS Study
 
 - 자바스크립트를 공부하며 주요 개념들을 정리함.
-- 교재: 모던 자바스크립트 입문(이소 히로시 지음)
+- 교재:
+  - 모던 자바스크립트 입문(이소 히로시 지음)
+  - 코어 자바스크립트(정재남 지음)
+  - 러닝 자바스크립트(이선 브라운 지음)
+  - [코어 자바스크립트](https://ko.javascript.info/js)
+  - [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript)
 
 ![JavaScript](https://blog.martinwork.co.kr/images/javascript/javascript.png)
 
