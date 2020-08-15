@@ -39,7 +39,7 @@ console.log(a); // 3
 
 ```javascript
 const now = new Date();
-console.log(`오늘은 ${now.getMonth()+1} 월 ${now.getDate()} 일입니다.`); //오늘은 2 월 19 일입니다.
+console.log(`오늘은 ${now.getMonth() + 1} 월 ${now.getDate()} 일입니다.`); //오늘은 2 월 19 일입니다.
 
 console.log(now.getMonth()); //1
 ```
@@ -92,12 +92,12 @@ console.log(square(3)); // undefined
 // 기명 함수표현식
 const b = function bb() {
   return 'bb';
-}
+};
 
 // 익명 함수표현식
-const c = function() {
+const c = function () {
   return 'c';
-}
+};
 ```
 
 - 함수의 호이스팅은 코드의 순차실행을 저해하고 예측을 어렵게 하기 때문에 되도록 **함수표현식** 의 사용을 권함
@@ -106,7 +106,7 @@ const c = function() {
 
 ```javascript
 function add1(x) {
-  return x = x + 1;
+  return (x = x + 1);
 }
 
 var a = 3;
@@ -125,7 +125,7 @@ function add1(p) {
   return p;
 }
 
-var a = {x:3, y:4};
+var a = { x: 3, y: 4 };
 var b = add1(a);
 
 console.log(a, b); // { x: 4, y: 5 } { x: 4, y: 5 }
@@ -158,14 +158,16 @@ console.log(b); // ReferenceError: b is not defined
 
 ```javascript
 var circle = {
-  center: { x:1.0, y:2.0 }, // 원의 중심
+  center: { x: 1.0, y: 2.0 }, // 원의 중심
   radius: 2.5, // 원의 반지름
-  area: function () { // 원의 넓이를 구하는 메서드
+  area: function () {
+    // 원의 넓이를 구하는 메서드
     return Math.PI * this.radius * this.radius;
-  }
+  },
 };
 
-circle.translate = function(a, b) { // 새로운 메서드를 추가하여 원을 이동
+circle.translate = function (a, b) {
+  // 새로운 메서드를 추가하여 원을 이동
   this.center.x = this.center.x + a;
   this.center.y = this.center.y + b;
 };
@@ -180,13 +182,16 @@ circle.center; // {x: 2, y: 4}
 ## 함수를 사용하는 이유
 
 1. **재사용이 가능하다.**
-  - 동일한 작업이 반복될 경우 해당 작업을 하는 함수를 만들어 필요한 곳에서 호출만 하면 되기 때문에 코드가 간결해진다.
+
+- 동일한 작업이 반복될 경우 해당 작업을 하는 함수를 만들어 필요한 곳에서 호출만 하면 되기 때문에 코드가 간결해진다.
 
 2. **프로그램을 이해하기 쉽다.**
-  - 함수의 이름을 알아보기 쉽게 지으면, 함수명만 보고도 프로그램의 흐름을 파악하기 쉽다.
+
+- 함수의 이름을 알아보기 쉽게 지으면, 함수명만 보고도 프로그램의 흐름을 파악하기 쉽다.
 
 3. **프로그램의 수정이 간단해진다.**
-  - 수정해야 할 일이 있을 때 해당되는 함수만 수정하면 된다.
+
+- 수정해야 할 일이 있을 때 해당되는 함수만 수정하면 된다.
 
 ## 함수를 정의하는 방법
 
@@ -201,7 +206,7 @@ function square(x) {
 2. 함수 리터럴
 
 ```javascript
-const square = function(x) {
+const square = function (x) {
   return x * x;
 };
 ```
@@ -215,7 +220,7 @@ const square = new Function('x', 'return x * x);
 4. 화살표(arrow) 함수 표현식
 
 ```javascript
-const square = x => x * x;
+const square = (x) => x * x;
 ```
 
 - 함수 선언문을 제외한 세 가지 방법은 호이스팅이 되지 않기 때문에 **변수에 할당 후에 사용이 가능** 하며, 따라서 호출하는 코드보다 상단에 위치해야 한다.
@@ -239,7 +244,7 @@ console.log(card); // Card { suit: 'Heart', rank: 'A' }
 - 이때, 통상적으로 생성자 함수라는 것을 알리기 위해 **파스칼 케이스**를 쓴다.
 - 이와 같이 생성된 객체를 **인스턴스** 라고 부르는데, 본래 객체지향 언어에서의 인스턴스와는 차이가 있지만, 일반 객체와 구분하기 위해 편의상 인스턴스라고 부른다.
 - `this` 는 생성자가 생성하는 객체를 가리킨다. 즉, 생성자 함수 내부의 `this` 는 인스턴스를 가리킨다고 볼 수 있다.
-- **참고:** 
+- **참고:**
   - [‘new’ 연산자와 생성자 함수](https://ko.javascript.info/constructor-new)
   - [클래스와 기본 문법](https://ko.javascript.info/class)
   - [Classes - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes)
@@ -249,15 +254,18 @@ console.log(card); // Card { suit: 'Heart', rank: 'A' }
 - 자바스크립트의 객체는 크게 **세 종류** 로 구분할 수 있다.
 
 1. **네이티브 객체**
-  - ECMAScript 스펙에 따라 정의된 객체를 네이티브 객체(native object)다. 
-  - Array, Function, Number 등의 내장 생성자로 생성된 객체와 JSON, Math, Reflect 등이 네이티브 객체에 포함된다.
+
+- ECMAScript 스펙에 따라 정의된 객체를 네이티브 객체(native object)다.
+- Array, Function, Number 등의 내장 생성자로 생성된 객체와 JSON, Math, Reflect 등이 네이티브 객체에 포함된다.
 
 2. **호스트 객체**
-  - 자바스크립트 실행 환경에 정의된 객체를 호스트 객체(host object)라고 한다.
-  - Window, Navigator, History, Screen 등 브라우저 객체와 DOM 객체, Ajax를 위한 XMLHttpRequest 객체, HTML5의 여러 API에 이르기까지 클라이언트 측 자바스크립트에 정의된 객체들이 포함된다.
+
+- 자바스크립트 실행 환경에 정의된 객체를 호스트 객체(host object)라고 한다.
+- Window, Navigator, History, Screen 등 브라우저 객체와 DOM 객체, Ajax를 위한 XMLHttpRequest 객체, HTML5의 여러 API에 이르기까지 클라이언트 측 자바스크립트에 정의된 객체들이 포함된다.
 
 3. **사용자 정의 객체**
-  - 사용자가 직접 정의한 코드의 실행 결과로 생성된 객체를 말한다.
+
+- 사용자가 직접 정의한 코드의 실행 결과로 생성된 객체를 말한다.
 
 ## 희소 배열(sparse array)
 
@@ -267,7 +275,7 @@ a[4] = 'E';
 console.log(a); // ["A", "B", "C", empty, "E"]
 console.log(a[3]); // undefined
 console.log(a.length); // 5
-a.hasOwnProperty("3"); // false
+a.hasOwnProperty('3'); // false
 ```
 
 - 위와 같이 `length`가 요소의 개수보다 클 때 **희소 배열** 이라고 부른다.
@@ -275,10 +283,10 @@ a.hasOwnProperty("3"); // false
 
 ```javascript
 const a = {
-  '0':'A',
-  '1':'B',
-  '2':'C',
-  '4':'E'
+  '0': 'A',
+  '1': 'B',
+  '2': 'C',
+  '4': 'E',
 };
 ```
 
@@ -288,20 +296,20 @@ const a = {
 - number, string, boolean 등의 원시 값(primitive value)은 그 자체로 가장 간단한 표현식이라고 할 수 있다.
 
 ```javascript
-3.14
-"hello"
-true
-null
+3.14;
+('hello');
+true;
+null;
 ```
 
 - 변수, 프로퍼티, 배열 요소, 함수 호출, 메서드 호출 등 또한 표현식이라고 할 수 있다.
 
 ```javascript
-sum
-circle.radius
-a[3]
-square(5)
-card.getSum()
+sum;
+circle.radius;
+a[3];
+square(5);
+card.getSum();
 ```
 
 - 연산자가 더해지더라도 결과적으로 값으로 평가된다면 역시 표현식이다.
@@ -348,9 +356,9 @@ console.log(newString); // microhard
 
 ```javascript
 var s = '2';
-console.log(s, typeof(s)); // 2 string
-console.log(s-0, typeof(s-0)); // 2 number
-console.log(+s, typeof(+s)); // 2 number
+console.log(s, typeof s); // 2 string
+console.log(s - 0, typeof (s - 0)); // 2 number
+console.log(+s, typeof +s); // 2 number
 ```
 
 - 간단하고 편리한 방법이긴 하지만, 놓치고 지나칠 가능성이 농후하므로 되도록 `parseInt()`, `Number()`와 같은 명시적인 방법으로 타입을 변환하는 게 좋다고 생각한다.
@@ -360,18 +368,21 @@ console.log(+s, typeof(+s)); // 2 number
 - 웹 브라우저의 전역 객체 window에는 **대화상자** 를 띄울 수 있는 방법이 세 가지가 있다.
 
 **`window.alert()`**
-  - 경고 대화상자를 표시
-  - 확인을 누르면 undefiend 반환
+
+- 경고 대화상자를 표시
+- 확인을 누르면 undefiend 반환
 
 **`window.prompt()`**
-  - 사용자의 문자열 입력을 받을 수 있는 대화상자를 표시
-  - 문자열 입력 후 확인을 누르면 해당 문자열 반환
-  - 문자열을 입력하지 않고 확인을 누르면 빈 문자열("") 반환
-  - 취소를 누르면 null 반환
+
+- 사용자의 문자열 입력을 받을 수 있는 대화상자를 표시
+- 문자열 입력 후 확인을 누르면 해당 문자열 반환
+- 문자열을 입력하지 않고 확인을 누르면 빈 문자열("") 반환
+- 취소를 누르면 null 반환
 
 **`window.confirm()`**
-  - '확인' 버튼과 '취소' 버튼이 있는 대화상자를 표시
-  - '확인'을 누르면 true를, '취소'를 누르면 false가 반환
+
+- '확인' 버튼과 '취소' 버튼이 있는 대화상자를 표시
+- '확인'을 누르면 true를, '취소'를 누르면 false가 반환
 
 ## for 문 실행순서
 
@@ -382,6 +393,7 @@ for (let i = 0; i < 10; i++) {
 ```
 
 **위와 같은 일반적인 for 문이 있을 때, 실행 순서는 다음과 같다.**
+
 1. 변수 i를 선언 및 0으로 초기화 `let i = 0`
 2. i가 10 보다 작은지 확인 `i < 10`
 3. 블록문 실행 `console.log(i)`
@@ -400,14 +412,14 @@ for (let i = 0; i < 10; i++) {
 
 ```javascript
 // 첫 번째 방법
-(function() {
+(function () {
   // something
 })();
 
 // 두 번째 방법
-(function() {
+(function () {
   // something
-}());
+})();
 
 // 인수를 넣을 수도 있음
 (function fact(n) {
@@ -416,7 +428,7 @@ for (let i = 0; i < 10; i++) {
 })(5); // 120
 
 // 변수에 할당 가능
-const x = (function() {
+const x = (function () {
   // something
 })();
 ```
@@ -458,10 +470,14 @@ fact(5); // 120
 ```
 
 **재귀 함수를 정의할 때 유의해야 하는 사항**
+
 1. **재귀 호출은 반드시 멈춰야 한다.**
-  - 재귀 함수가 멈추는 조건이 반드시 있어야 하며, 그렇지 않으면 스택 오버플로우(stact overflow)를 일으키게 된다.
+
+- 재귀 함수가 멈추는 조건이 반드시 있어야 하며, 그렇지 않으면 스택 오버플로우(stact overflow)를 일으키게 된다.
+
 2. **재귀 호출을 통해 문제를 간단히 해결할 수 있을 때만 사용한다.**
-  - 재귀 함수는 메모리를 많이 차지하는 작업이다. 따라서 while문이나 for문으로 해결 가능하다면 재귀 함수를 지양하는 것이 좋다.
+
+- 재귀 함수는 메모리를 많이 차지하는 작업이다. 따라서 while문이나 for문으로 해결 가능하다면 재귀 함수를 지양하는 것이 좋다.
 
 ## 실행 컨텍스트(Execution Centext)
 
@@ -478,20 +494,20 @@ fact(5); // 120
 
 **실행 컨텍스트의 구조를 의사 코드로 표현하면 아래와 같다.**
 
-  ```javascript
-  // 실행 컨텍스트의 구조를 보여주는 pseudo code
-  ExecutionContext = {
-    LexicalEnvironment: {
-      EnvironmentRecord: {
-        DeclarativeEnvironmentRecord: {},
-        ObjectEnvironmentRecord: {}
-      },
-      OuterLexicalEnvironmentReference: {}
+```javascript
+// 실행 컨텍스트의 구조를 보여주는 pseudo code
+ExecutionContext = {
+  LexicalEnvironment: {
+    EnvironmentRecord: {
+      DeclarativeEnvironmentRecord: {},
+      ObjectEnvironmentRecord: {},
     },
-    VariableEnvironment: {},
-    ThisBinding: null
-  }
-  ```
+    OuterLexicalEnvironmentReference: {},
+  },
+  VariableEnvironment: {},
+  ThisBinding: null,
+};
+```
 
 - **참고:**
   - [(JavaScript) 함수의 범위(scope) - lexical scoping - ZeroCho Blog](https://www.zerocho.com/category/Javascript/post/5740531574288ebc5f2ba97e)
@@ -547,6 +563,7 @@ f(); // ABC
 ```
 
 **위와 같은 중첩 함수가 있을 때, 식별자 탐색 과정을 단계별로 알아보자면 다음과 같다.**
+
 1. `g()`의 렉시컬 환경의 선언적 환경 레코드(Declarative Environment Record)에서 식별자 `c`를 찾는다.
 2. `g()`의 선언적 환경 레코드에서 식별자 `b`를 찾지만 못 찾고, `g()`의 외부 렉시컬 환경 참조(Outer Lexical Environment Reference)에 기록된 상위 함수 `f()`로 이동하여 탐색한다.
 3. `f()`의 렉시컬 환경의 선언적 환경 레코드에서 식별자 `b`를 찾는다.
@@ -583,6 +600,7 @@ console.log(a); // 1
 ```
 
 **위와 같은 코드가 있을 때 내부적인 실행 절차는 다음과 같다.**
+
 1. 전역 실행 컨텍스트 생성
 2. 전역 변수 `a` 선언(호이스팅)
 3. 외부 함수 `outer` 선언(호이스팅)
@@ -615,7 +633,8 @@ console.log(a); // 1
 function makeCounter() {
   var count = 0;
   return f;
-  function f() { // 보통은 익명함수를 사용하지만, 편의를 위해 이름을 붙임
+  function f() {
+    // 보통은 익명함수를 사용하지만, 편의를 위해 이름을 붙임
     return count++;
   }
 }
@@ -627,6 +646,7 @@ console.log(counter()); // 2
 ```
 
 **위와 같은 클로저가 있을 때 다음과 같은 특징을 알 수 있다.**
+
 1. 외부 함수 `makeCounter`는 중첩 함수 `f`의 참조를 반환한다.
 2. 중첩 함수 `f`는 외부 함수 `makeCounter`의 지역 변수 `count`를 참조한다.
 3. 전역 변수 `counter`에 함수 `makeCounter`를 할당하였으므로, 전역 변수 `counter`는 중첩 함수 `f`의 함수 객체를 참조한다.
@@ -634,6 +654,7 @@ console.log(counter()); // 2
 5. 결과적으로, 전역 변수 `counter`는 중첩 함수 `f`의 함수 객체를 통해 간접적으로 외부 함수 `makeCounter`의 렉시컬 환경 컴포넌트를 참조한다.
 
 **클로저의 핵심:**
+
 - 외부 함수를 호출하면 해당 함수의 렉시컬 환경 컴포넌트가 생성되며, 중첩 함수의 함수 객체를 생성 및 반환한다.
 - 외부 함수는 클로저를 생성하는 팩토리 함수이며, 클로저의 주 기능은 중첩 함수에 담겨있다.
 - 외부 함수가 속한 렉시컬 환경 컴포넌트는 클로저 내부 상태 자체이며, 외부 함수가 호출될 때마다 새로 생성된다.
@@ -654,9 +675,10 @@ console.log(counter2()); // 2
 - 클로저 내부 상태(외부 함수의 지역 변수, 선언적 환경 레코드)는 외부로부터 은폐되어 있으며 중첩 함수 안에서만 읽거나 쓸 수 있다.
 
 **참고:**
-  - [클로저 - 생활코딩](https://opentutorials.org/course/743/6544)
-  - [클로저 - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)
-  - [Closure | PoiemaWeb](https://poiemaweb.com/js-closure)
+
+- [클로저 - 생활코딩](https://opentutorials.org/course/743/6544)
+- [클로저 - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)
+- [Closure | PoiemaWeb](https://poiemaweb.com/js-closure)
 
 ## 네임 스페이스 오염을 줄이는 방법
 
@@ -665,47 +687,53 @@ console.log(counter2()); // 2
 그리고, 네임 스페이스의 오염을 최소화 하기 위한 방법으로는 다음과 같은 것들이 있다.
 
 1. **객체를 네임 스페이스로 활용하기**
-  - 프로그램을 대표할만한 이름의 전역 변수를 하나 생성하여 객체를 값으로 할당하고, 프로그램에서 필요한 모든 변수와 함수를 프로퍼티로 정의한다.
 
-  ```javascript
-  var myApp = myApp || {};
+- 프로그램을 대표할만한 이름의 전역 변수를 하나 생성하여 객체를 값으로 할당하고, 프로그램에서 필요한 모든 변수와 함수를 프로퍼티로 정의한다.
 
-  myApp.name = 'Tom';
-  myApp.showName = function() {
-    // something
-  };
-  myApp.view = {}; // 내부에 또 다른 네임 스페이스를 만들 수도 있다.
-  myApp.view.draw = function() {
-    // something
-  };
-  ```
+```javascript
+var myApp = myApp || {};
+
+myApp.name = 'Tom';
+myApp.showName = function () {
+  // something
+};
+myApp.view = {}; // 내부에 또 다른 네임 스페이스를 만들 수도 있다.
+myApp.view.draw = function () {
+  // something
+};
+```
 
 2. **즉시 실행 함수로 감싸기**
-  - 일시적인 처리를 수행하는 내용들을 즉시 실행 함수로 감싸면 중복된 이름이 있더라도 전역 네임 스페이스를 오염시키지 않고 실행이 가능하다.
+
+- 일시적인 처리를 수행하는 내용들을 즉시 실행 함수로 감싸면 중복된 이름이 있더라도 전역 네임 스페이스를 오염시키지 않고 실행이 가능하다.
 
 3. **모듈 패턴**
-  - 모듈(module)은 여러 기능을 하나로 묶은 것으로, 클로저(closure)를 즉시 실행 함수(IIFE)로 감싼 형태다.
-  - 이를 통하여 내부의 변수나 함수는 은폐하고, 원하는 함수만 공개할 수 있다.
-  
-  ```javascript
-  var Module = Module || {};
 
-  (function(_Module) {
-    var name = 'NoName'; // 프라이빗 변수
-    function getName() { // 프라이빗 함수
-      return name;
-    }
-    _Module.showName = function() { // 퍼블릭 함수
-      console.log(getName());
-    };
-    _Module.setName = function(x) { // 퍼블릭 함수
-      name = x;
-    };
-  })(Module)
+- 모듈(module)은 여러 기능을 하나로 묶은 것으로, 클로저(closure)를 즉시 실행 함수(IIFE)로 감싼 형태다.
+- 이를 통하여 내부의 변수나 함수는 은폐하고, 원하는 함수만 공개할 수 있다.
 
-  Module.setName('Tom');
-  Module.showName(); // Tom
-  ```
+```javascript
+var Module = Module || {};
+
+(function (_Module) {
+  var name = 'NoName'; // 프라이빗 변수
+  function getName() {
+    // 프라이빗 함수
+    return name;
+  }
+  _Module.showName = function () {
+    // 퍼블릭 함수
+    console.log(getName());
+  };
+  _Module.setName = function (x) {
+    // 퍼블릭 함수
+    name = x;
+  };
+})(Module);
+
+Module.setName('Tom');
+Module.showName(); // Tom
+```
 
 - **참고:**
   - [JavaScript 자바스크립트 모듈 패턴을 이용한 캡슐화 :: 심플한 코딩 백과사전](https://webcoding.tistory.com/entry/JavaScript-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%AA%A8%EB%93%88-%ED%8C%A8%ED%84%B4%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BA%A1%EC%8A%90%ED%99%94)
@@ -757,34 +785,46 @@ const f = (a, b) => ({x:a, y:b}); // 반환값이 객체 리터럴이라면 괄�
 ### 일반 함수와 화살표 함수의 차이.
 
 1. **this**
-  - 함수 리터럴로 정의한 함수는 `this`의 값이 함수를 호출할 때 결정되지만, 화살표 함수의 `this`값은 함수를 정의할 때 결정된다.
+
+- 함수 리터럴로 정의한 함수는 `this`의 값이 함수를 호출할 때 결정되지만, 화살표 함수의 `this`값은 함수를 정의할 때 결정된다.
 
 2. **arguments 변수가 없음**
-  - 화살표 함수 안에는 arguments 변수가 정의되어 있지 않아 사용할 수 없다.
-  
-  ```javascript
-  const f  = () => console.log(arguments);
-  f(); // Uncaught ReferenceError: arguments is not defined
-  
-  const s = function() {console.log(arguments);};
-  s(); // Arguments [callee: ƒ, Symbol(Symbol.iterator): ƒ]
-  ```
+
+- 화살표 함수 안에는 arguments 변수가 정의되어 있지 않아 사용할 수 없다.
+
+```javascript
+const f = () => console.log(arguments);
+f(); // Uncaught ReferenceError: arguments is not defined
+
+const s = function () {
+  console.log(arguments);
+};
+s(); // Arguments [callee: ƒ, Symbol(Symbol.iterator): ƒ]
+```
 
 3. **생성자로 사용 불가**
-  - 화살표 함수 앞에는 `new` 연산자를 붙여 호출할 수 없다.
-  
-  ```javascript
-  const Person = (name, age) => {this.name = name; this.age = age;};
-  const Tom = new Person('Tom', 25); // Uncaught TypeError: Person is not a constructor
 
-  const Coffee = function(name, price) {this.name = name; this.price = price;};
-  const americano = new Coffee('Americano', 4100);
-  console.log(americano); // Coffee {name: "Americano", price: 4100}
-  console.log(americano.price); // 4100
-  ```
+- 화살표 함수 앞에는 `new` 연산자를 붙여 호출할 수 없다.
+
+```javascript
+const Person = (name, age) => {
+  this.name = name;
+  this.age = age;
+};
+const Tom = new Person('Tom', 25); // Uncaught TypeError: Person is not a constructor
+
+const Coffee = function (name, price) {
+  this.name = name;
+  this.price = price;
+};
+const americano = new Coffee('Americano', 4100);
+console.log(americano); // Coffee {name: "Americano", price: 4100}
+console.log(americano.price); // 4100
+```
 
 4. **yield 키워드를 쓸 수 없다**
-  - 화살표 함수 안에서는 `yield` 키워드를 쓸 수 없으며, 따라서 화살표 함수는 제너레이터의 기능을 수행할 수 없다.
+
+- 화살표 함수 안에서는 `yield` 키워드를 쓸 수 없으며, 따라서 화살표 함수는 제너레이터의 기능을 수행할 수 없다.
 
 - **참고:**
   - [화살표 함수 - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)
@@ -801,6 +841,7 @@ const f = (a, b) => ({x:a, y:b}); // 반환값이 객체 리터럴이라면 괄�
 - `[Symbol.iterator]` 메서드를 갖고 있는 객체를 **반복 가능(iterable) 한 객체** 라고 한다.
 - 주의해야 할 것은 **이터레이터 객체 != 이터러블 객체** 라는 점이다.
 - 또한 **이터러블 != 유사 배열** 역시 다르다.
+
   - 유사 배열에는 `index`와 `length` 프로퍼티가 있다.
   - 이터러블이라고 해서 꼭 유사 배열인 것은 아니며, 유사 배열이라고 해서 꼭 이터러블인 것도 아니다. 그러나 이터러블과 유사 배열의 특성을 동시에 갖는 객체도 있다. 대표적으로 문자열(String)이 그렇다.
 
@@ -859,11 +900,13 @@ const a = yield 2;
 ```javascript
 const myCat = {
   name: 'Lucy',
-  sayHello: function() { console.log('Hello! ' + this.name); }
+  sayHello: function () {
+    console.log('Hello! ' + this.name);
+  },
 };
 
 const yourCat = {
-  name: 'Tom'
+  name: 'Tom',
 };
 
 yourCat.__proto__ = myCat;
@@ -902,7 +945,7 @@ const person = {
   set name(value) {
     const str = value.charAt(0).toUpperCase() + value.substring(1);
     this._name = str;
-  }
+  },
 };
 
 console.log(person.name); // Tom
@@ -925,7 +968,7 @@ Object.defineProperty(user, 'name', {
       return;
     }
     this._name = value;
-  }
+  },
 });
 
 user.name = 'Peter';
@@ -937,7 +980,7 @@ user.name = 'Li'; // Too short! more than 4 characters
 - 아래와 같이 **즉시 실행 함수(IIFE)** 로 감싸 클로저를 생성하면 데이터를 객체 외부에서 읽고 쓸 수 없도록 숨기는 동시에 접근자 프로퍼티로만 읽고 쓸 수 있게 할 수 있다.
 
 ```javascript
-const person = (function() {
+const person = (function () {
   let _name = 'Tom';
   return {
     get name() {
@@ -946,7 +989,7 @@ const person = (function() {
     set name(value) {
       const str = value.charAt(0).toUpperCase() + value.substring(1);
       _name = str;
-    }
+    },
   };
 })();
 
@@ -982,7 +1025,7 @@ const robot = {
   },
   set name(value) {
     this._name = value;
-  }
+  },
 };
 
 // 데이터 프로퍼티의 프로퍼티 디스크립터
@@ -1005,7 +1048,7 @@ Object.defineProperty(spaceShip, 'name', {
   value: 'codeship',
   writable: true,
   enumerable: false,
-  configurable: false
+  configurable: false,
 });
 
 console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
@@ -1020,7 +1063,7 @@ const spaceShip = {};
 Object.defineProperty(spaceShip, 'name', {
   value: 'codeship',
   writable: true,
-  configurable: true
+  configurable: true,
 });
 
 console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
@@ -1039,14 +1082,14 @@ Object.defineProperty(spaceShip, 'name', {
   value: 'codeship',
   writable: true,
   enumerable: false,
-  configurable: true
+  configurable: true,
 });
 
 console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
 // {value: "codeship", writable: true, enumerable: false, configurable: true}
 
 Object.defineProperty(spaceShip, 'name', {
-  enumerable: true
+  enumerable: true,
 });
 
 console.log(Object.getOwnPropertyDescriptor(spaceShip, 'name'));
@@ -1072,8 +1115,8 @@ function mixin(target, source) {
   return target;
 }
 
-const obj1 = {a: 1, b: 2};
-const obj2 = {b: 3, c: 4};
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
 const obj = mixin(obj1, obj2);
 console.log(obj); // {a: 1, b: 3, c: 4}
 ```
@@ -1087,7 +1130,7 @@ let sayHiMixin = {
   },
   sayBye() {
     console.log(`Bye ${this.name}`);
-  }
+  },
 };
 
 class User {
@@ -1100,7 +1143,8 @@ Object.assign(User.prototype, sayHiMixin); // 메서드 복사
 
 new User('Dude').sayHi(); // Hello Dude
 
-class codeAmeba extends User { // subclass
+class codeAmeba extends User {
+  // subclass
   constructor(name) {
     super(name);
   }
@@ -1112,7 +1156,8 @@ new codeAmeba('Sooyoung').sayBye(); // Bye Sooyoung
 위와 같이 클래스(프로토타입) 상속과는 별개로 메서드 상속을 사용할 수 있게 해주는 것이 믹스인이다.
 
 **참고:**
-  - [믹스인](https://ko.javascript.info/mixins)
+
+- [믹스인](https://ko.javascript.info/mixins)
 
 ## 수정 메서드
 
@@ -1207,8 +1252,10 @@ console.log(fruits);
 ```javascript
 let numbers = [4, 6, 8, 1, 15, 3, 36, 2, 51, 7, 19, 24];
 
-numbers.sort(function(a, b) { return a - b; });
-console.log(numbers); 
+numbers.sort(function (a, b) {
+  return a - b;
+});
+console.log(numbers);
 // [1, 2, 3, 4, 6, 7, 8, 15, 19, 24, 36, 51]
 ```
 
@@ -1218,12 +1265,13 @@ console.log(numbers);
 let fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
 
 fruits.sort();
-console.log(fruits); 
+console.log(fruits);
 // ["apple", "banana", "blueberry", "melon", "peach"]
 ```
 
 **참고:**
-  - [배열과 메서드](https://ko.javascript.info/array-methods)
+
+- [배열과 메서드](https://ko.javascript.info/array-methods)
 
 ## 접근자 메서드
 
@@ -1317,13 +1365,14 @@ console.log([‘Seoul’, ‘Republic of Korea’, date].toLocaleString());
 `Object.prototype`에 동일한 이름을 가진 메서드가 존재하지만, `Array`에 새롭게 정의한 메서드이므로 다른 메서드로 볼 수 있다.
 
 ```javascript
-Object.prototype.toString === Array.prototype.toString // false
+Object.prototype.toString === Array.prototype.toString; // false
 
-Object.prototype.toString === Array.prototype.__proto__.toString // true
+Object.prototype.toString === Array.prototype.__proto__.toString; // true
 ```
 
 **참고:**
-  - [배열과 메서드](https://ko.javascript.info/array-methods)
+
+- [배열과 메서드](https://ko.javascript.info/array-methods)
 
 ## 반복 메서드
 
@@ -1339,9 +1388,11 @@ Object.prototype.toString === Array.prototype.__proto__.toString // true
 
 1. 반복 메서드의 인수로 전달한 함수는 배열의 모든 요소들에 호출되어 적용되며, 희소 배열의 경우 비어있는 요소는 건너뜀
 2. 반복 메서드 대부분은 첫 번째 인수로 함수를 받으며, 이 함수에는 **최대 세 개의 인수** 를 전달할 수 있다. 첫 번째 인수만 전달하는 경우가 많으며, 각각의 인수는 다음과 같다.
-  - 첫 번째 인수(value): 현재 처리하는 요소의 값
-  - 두 번째 인수(index): 현재 처리하는 요소의 인덱스
-  - 세 번째 인수(array): 메서드가 적용되는 배열의 참조
+
+- 첫 번째 인수(value): 현재 처리하는 요소의 값
+- 두 번째 인수(index): 현재 처리하는 요소의 인덱스
+- 세 번째 인수(array): 메서드가 적용되는 배열의 참조
+
 3. `reduce`와 `reduceRight`를 제외한 반복 메서드에는 두 번째 인수를 지정할 수 있다. 두 번째 인수는 첫 번째 인수로 받은 함수 안의 `this`값이며 생략 가능하다.
 
 ### forEach
@@ -1375,7 +1426,7 @@ fruits.forEach((fruit, index) => {
 ```javascript
 const fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];
 const myFruits = fruits.map((fruit) => fruit.toUpperCase());
-console.log(myFruits); 
+console.log(myFruits);
 // [“APPLE”, “BANANA”, “MELON”, “PEACH”, “BLUEBERRY”]
 
 const numbers = [1, 4, 9, 16, 25];
@@ -1431,7 +1482,7 @@ console.log(result); // 27
 6. `sum = 0 + 1 + 5 + 3 + 7 + 9` / `current = 2`
 7. `return sum = 0 + 1 + 5 + 3 + 7 + 9 + 2`
 
-끝의 `0`은 `reduce()`의 마지막 인수로 초깃값을 뜻하며 `sum`에 할당된다. 
+끝의 `0`은 `reduce()`의 마지막 인수로 초깃값을 뜻하며 `sum`에 할당된다.
 
 ```javascript
 let arr = [1, 4, 6, 9];
@@ -1454,7 +1505,7 @@ let a = [3, 6, 7, 2];
 console.log(a.reduce((pre, val) => pre * val)); // 252
 
 // 배열 요소 중 가장 큰 값
-console.log(a.reduce((pre, val) => pre > val ? pre : val)); // 7
+console.log(a.reduce((pre, val) => (pre > val ? pre : val))); // 7
 
 let names = ['Tom', 'Jane', 'Sam'];
 
@@ -1467,7 +1518,8 @@ console.log(names.reduce((pre, val) => pre + ' ' + val)); // Tom Jane Sam
 `reduce()`와 유사한 메서드로 `reduceRight()`가 있다. 원리와 사용법은 동일하며 배열의 오른쪽 요소부터 작업을 수행한다는 점이 다르다.
 
 **참고:**
-  - [배열과 메서드](https://ko.javascript.info/array-methods)
+
+- [배열과 메서드](https://ko.javascript.info/array-methods)
 
 ## 유사 배열 객체(Array-like object)
 
@@ -1479,7 +1531,7 @@ console.log(names.reduce((pre, val) => pre + ' ' + val)); // Tom Jane Sam
 
 ```javascript
 // 유사 배열 객체에서의 Array.prototype 메서드 사용
-const b = {0: 'A', 1: 'B', 2: 'C', length: 3};
+const b = { 0: 'A', 1: 'B', 2: 'C', length: 3 };
 console.log(Array.prototype.join.call(b, ', ')); // A, B, C
 
 // 요소를 추가하자 length가 자동으로 변경 됨
@@ -1489,7 +1541,7 @@ console.log(b); // {0: "A", 1: "B", 2: "C", 3: "D", length: 4}
 // 진짜 배열로 변환
 console.log(Array.prototype.slice.call(b, 0)); //  ["A", "B", "C", "D"]
 
-const c = {0: 1, 1: 2, 2: 3, length: 3};
+const c = { 0: 1, 1: 2, 2: 3, length: 3 };
 console.log(Array.prototype.map.call(c, (v) => v * v)); // [1, 4, 9]
 ```
 
@@ -1501,19 +1553,18 @@ console.log(Array.prototype.map.call(c, (v) => v * v)); // [1, 4, 9]
 // 이터러블 객체를 풀어줌
 console.log(...'ABC'); // A B C
 console.log(...[1, 2, 3, 4]); // 1 2 3 4
-console.log([1, ...[2, 3, 4], 5]) // [1, 2, 3, 4, 5]
+console.log([1, ...[2, 3, 4], 5]); // [1, 2, 3, 4, 5]
 
 // 인수를 전달할 때 풀어서 전달
 const favorFruits = (fruit) => {
   let myFavor = [];
   myFavor.push(...fruit);
   return console.log(myFavor);
-}
+};
 
 const fruits = ['apple', 'grape', 'melon', 'cherry'];
 favorFruits(fruits); // ["apple", "grape", "melon", "cherry"]
 favorFruits(...fruits); // ["a", "p", "p", "l", "e"]
-
 
 // ...을 사용하여 concat 대신 push로 연결 가능
 const newFruits = ['mango', 'blueberry'];
@@ -1556,7 +1607,7 @@ let goodJson = '{"name":"Sooyoung", "age":33}';
 let user = JSON.parse(goodJson);
 console.log(user); // {name: "Sooyoung", age: 33}
 
-let badJson = "{ I am bad JSON }";
+let badJson = '{ I am bad JSON }';
 try {
   let user = JSON.parse(badJson); // <- 여기서 에러 발생
   console.log(user); // 에러 이후의 코드는 동작하지 않음
@@ -1574,7 +1625,8 @@ let noNameJson = '{ "age": 33 }';
 
 try {
   let user = JSON.parse(noNameJson); // 시스템적으로 에러가 발생할 이유가 없음
-  if (!user.name) { // <- name이 없을 때 발생하는 에러 생성
+  if (!user.name) {
+    // <- name이 없을 때 발생하는 에러 생성
     throw new Error('불완전한 데이터: name이 없습니다.');
   }
   console.log(user.name);
@@ -1584,7 +1636,8 @@ try {
 ```
 
 **참고:**
-  - [‘try..catch’와 에러 핸들링](https://ko.javascript.info/try-catch)
+
+- [‘try..catch’와 에러 핸들링](https://ko.javascript.info/try-catch)
 
 ## 문자열 메소드의 활용
 
@@ -1636,7 +1689,8 @@ console.log(randomString.match(/sit/g)); // ["sit"]
 ```javascript
 let url = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
 
-let introduce = '안녕하세요. codeAmeba의 홈페이지는 http://www.codeameba.com/ 입니다.';
+let introduce =
+  '안녕하세요. codeAmeba의 홈페이지는 http://www.codeameba.com/ 입니다.';
 
 console.log(introduce.match(url)[0]); // http://www.codeameba.com/
 ```
@@ -1654,7 +1708,8 @@ console.log(randomString.split(' '));
 ```
 
 **참고:**
-  - [Methods of RegExp and String](https://javascript.info/regexp-methods)
+
+- [Methods of RegExp and String](https://javascript.info/regexp-methods)
 
 ## 웹 페이지에서 자바스크립트가 하는 일
 
@@ -1667,26 +1722,32 @@ HTML과 CSS만으로 구성된 웹 페이지를 **정적(static) 페이지** 라
 웹 브라우저에서 자바스크립트가 하는 일은 크게 네 가지로 분류할 수 있다.
 
 **첫째,** 웹 페이지의 Document 객체(HTML, CSS)를 제어한다.
-  - DOM(Document Object Model) API를 이용
+
+- DOM(Document Object Model) API를 이용
 
 **둘째,** 웹 페이지의 Window 객체와 브라우저를 제어한다.
-  - Location, Navigator, History 등 웹 브라우저 내장 객체 이용
+
+- Location, Navigator, History 등 웹 브라우저 내장 객체 이용
 
 **셋째,** 웹 페이지에서 발생하는 이벤트를 처리한다.
-  - addEventListener, setTimeout 등을 이용한 click, scroll 등의 이벤트 처리
+
+- addEventListener, setTimeout 등을 이용한 click, scroll 등의 이벤트 처리
 
 **넷째,** HTTP를 이용하여 통신을 제어한다.
-  - XMLHttpRequest 객체를 활용하며, promise, async/await 등의 비동기 처리.
+
+- XMLHttpRequest 객체를 활용하며, promise, async/await 등의 비동기 처리.
 
 ### 웹 앱의 발전
 
 웹 브라우저가 막 등장한 초기에는 단지 웹에서 문서를 표시하고, `<a></a>` anchor 태그를 통해 이 문서에서 저 문서로 연결을 하는 정도의 역할이 전부였다. 하지만, 현재에 이르러서는 고성능의 자바스크립트 엔진과 더불어 HTML과 CSS의 발전으로 인하여 브라우저는 웹 애플리케이션이 구동되는 하나의 운영체제(OS)로써의 역할을 하고 있다.
 
 **참고:**
-  - [Javascript Environment | PoiemaWeb](https://poiemaweb.com/js-browser)
-  - [NAVER D2](https://d2.naver.com/helloworld/59361)
+
+- [Javascript Environment | PoiemaWeb](https://poiemaweb.com/js-browser)
+- [NAVER D2](https://d2.naver.com/helloworld/59361)
 
 ## 콜백(Callback)
+
 다른 함수의 인자(parameter)로 전달되는 함수를 [콜백 함수](https://ko.javascript.info/callbacks) 라고 부른다. 이 콜백 함수를 인자로 받은 함수는 원하는 순간에 콜백 함수를 호출할 수 있고, 제어권을 콜백 함수에게 넘겨준다.
 여기서 제어권을 넘겨준다는 의미는 콜백 함수의 [실행 컨텍스트](https://poiemaweb.com/js-execution-context)가 생성되어 [콜스택(Callstack)](https://developer.mozilla.org/ko/docs/Glossary/Call_stack) 최상단에 위치한다는 말이며, 즉 콜백 함수를 인자로 받은 함수의 실행이 중단됨을 의미한다. 해당 콜백 함수의 실행 컨텍스트가 종료되면 제어권은 다시 콜백 함수를 인자로 받은 함수에게로 돌아가고, 콜스택 최상단에는 콜백 함수를 호출한 함수의 실행 컨텍스트가 위치하게 된다.
 
@@ -1709,3 +1770,29 @@ letsBeerParty(cheers, 'cass');
 
 위의 예시에서 콜백 함수는 `cheers`이며, `letsBeerParty`함수 내부에서 다시 한번 `setTimeout`의 콜백 함수로 사용되었다.
 
+## Promise
+
+ES6에서 추가된 비동기 방식이다. 이전까지는 콜백(callback)을 사용하여 함수의 실행 순서를 제어하는 것으로 비동기 프로그래밍을 구현했는데, 콜백의 중첩이 과해지며 콜백 헬(callback hell)을 발생시킨다는 단점이 컸다.
+
+```js
+const condition = true;
+const promise = new Promise((resolve, reject) => {
+  if (condition) {
+    resolve('Success');
+  } else {
+    reject('Fail');
+  }
+});
+
+promise
+  .then((message) => {
+    console.log(message);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+// Success
+```
+
+위와 같이 `Promise` 객체를 생성하여 `resolve`와 `reject`라는 두 파라미터를 통해 성공과 실패를 확인할 수 있다. `resolve`가 호출되면 `then`이 실행되고, `reject`가 호출되면 `catch`가 실행된다.
